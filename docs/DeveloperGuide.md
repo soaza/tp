@@ -393,11 +393,11 @@ The unique classes associated to `AppointmentFindPatientCommand`  command:
 <br></br>_Diagram 4.2.5 : Appointment List All Command Sequence Diagram_
 
 ##### Implementation
-Listing all appointments from the appointment list.
+Listing all past and upcoming appointments from the appointment list.
 
 The unique classes associated to this command as shown from Diagram 4.2.6 are :
 1. `AppointmentCommandParser: AppointmentListAllCommandParser`— Creates a new AppointmentListAllCommand object.
-2. `AppointmentCommand: AppointmentListAllCommand`— Keeps appointment list unfiltered.
+2. `AppointmentCommand: AppointmentListAllCommand`— Updates filtered appointment list to show all appointments in address bok.
 
 #### 4.2.6 Complete Appointment
 

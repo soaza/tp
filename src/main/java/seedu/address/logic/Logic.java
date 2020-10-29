@@ -51,4 +51,14 @@ public interface Logic {
      * Set the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
+    /**
+     * Set to display filtered appointment list on start up.
+     */
+    void setStartFilteredAppointmentList() throws ParseException, CommandException;
+
+    /**
+     * Checks for newly missed appointments in address book.
+     */
+    void checkNewlyMissedAppointments() throws ParseException, CommandException;
 }

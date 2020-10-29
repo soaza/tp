@@ -97,4 +97,16 @@ public class LogicManager implements Logic {
     public void setGuiSettings(GuiSettings guiSettings) {
         model.setGuiSettings(guiSettings);
     }
+
+    @Override
+    public void setStartFilteredAppointmentList() throws ParseException, CommandException {
+        Command command = addressBookParser.parseCommand("a-list");
+        command.execute(model);
+    }
+
+    @Override
+    public void checkNewlyMissedAppointments() throws ParseException, CommandException {
+        Command command = addressBookParser.parseCommand("a-new-misses");
+        command.execute(model);
+    }
 }

@@ -7,8 +7,10 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -17,17 +19,18 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" resizable="false" title="Archangel" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="600" minWidth="800.0" onCloseRequest="#handleExit" title="Archangel" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/address_book_32.png" />
   </icons>
   <scene>
     <Scene>
-         <BorderPane minHeight="735.0" minWidth="900.0" prefHeight="400.0" prefWidth="900.0">
-            <top>
-           <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+         <AnchorPane minHeight="600.0" minWidth="800.0">
+            <children>
+           <MenuBar fx:id="menuBar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
              <Menu mnemonicParsing="false" text="File">
                <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
              </Menu>
@@ -35,101 +38,103 @@
                <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
              </Menu>
            </MenuBar>
-            </top>
-             <left>
-                 <VBox prefHeight="100.0" prefWidth="10.0" BorderPane.alignment="CENTER">
-                     <children>
-                         <VBox fx:id="calenderPanel" minWidth="340" prefWidth="340" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
-                             <padding>
-                                 <Insets bottom="10" left="10" right="10" top="10" />
-                             </padding>
-                             <Label text="Calendar" textFill="#37b4ee">
-                             <font>
-                                 <Font name="System Bold" size="26.0" />
-                             </font>
-                             </Label>
-                             <StackPane fx:id="calendarPanelPlaceholder" VBox.vgrow="ALWAYS" />
-                         </VBox>
-                     </children>
-                 </VBox>
-             </left>
-            <center>
-               <VBox prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
-                  <children>
-                     <Label prefWidth="163.0" text="Appointments" textFill="#37b4ee">
-                        <font>
-                           <Font size="26.0" />
-                        </font>
-                     </Label>
-                     <GridPane maxHeight="-Infinity" minWidth="500.0" prefHeight="75.0" prefWidth="500.0">
-                        <columnConstraints>
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="200.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-                        </columnConstraints>
-                        <rowConstraints>
-                           <RowConstraints />
-                        </rowConstraints>
-                        <children>
-                           <HBox alignment="CENTER_LEFT" minHeight="50.0" spacing="5">
+               <TabPane layoutX="111.0" layoutY="143.0" minWidth="600.0" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMinHeight="120.0" tabMinWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="30.0">
+                 <tabs>
+                   <Tab>
+                     <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                               <children>
-                                 <Label fx:id="id" styleClass="cell_big_label">
-                                    <minWidth>
-                                       <Region fx:constant="USE_PREF_SIZE" />
-                                    </minWidth>
-                                 </Label>
-                                 <Label fx:id="appointmentStartTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="Start Date" textFill="#37b4ee" wrapText="true">
-                                    <font>
-                                       <Font name="System Bold" size="13.0" />
-                                    </font>
-                                 </Label>
-                              </children>
-                           </HBox>
-                           <Label fx:id="isCompleted" styleClass="cell_small_label" text="Completed:" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="6" />
-                           <Label fx:id="isMissed" styleClass="cell_small_label" text="Missed:" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="5" />
-                           <Label fx:id="description" prefWidth="70.0" styleClass="cell_small_label" text="Details" textFill="#37b4ee" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3">
-                              <padding>
-                                 <Insets left="10.0" />
-                              </padding>
+                                 <GridPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minWidth="500.0" prefHeight="75.0" prefWidth="500.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                    <columnConstraints>
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="200.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                       <RowConstraints />
+                                    </rowConstraints>
+                                    <children>
+                                       <HBox alignment="CENTER_LEFT" minHeight="50.0" spacing="5">
+                                          <children>
+                                             <Label fx:id="id" styleClass="cell_big_label">
+                                                <minWidth>
+                                                   <Region fx:constant="USE_PREF_SIZE" />
+                                                </minWidth>
+                                             </Label>
+                                             <Label fx:id="appointmentStartTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="Start Date" textFill="#37b4ee" wrapText="true">
+                                                <font>
+                                                   <Font name="System Bold" size="13.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                       <Label fx:id="isCompleted" styleClass="cell_small_label" text="Completed:" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="6" />
+                                       <Label fx:id="isMissed" styleClass="cell_small_label" text="Missed:" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="5" />
+                                       <Label fx:id="description" prefWidth="70.0" styleClass="cell_small_label" text="Details" textFill="#37b4ee" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3">
+                                          <padding>
+                                             <Insets left="10.0" />
+                                          </padding>
+                                          <font>
+                                             <Font name="System Bold" size="13.0" />
+                                          </font>
+                                       </Label>
+                                       <Label fx:id="appointmentEndTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="End Date" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="1" />
+                                       <Label fx:id="patientName" styleClass="cell_small_label" text="Patient" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="2" />
+                                       <Label fx:id="description1" prefWidth="70.0" styleClass="cell_small_label" text="Tags" textFill="#37b4ee" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="4">
+                                          <padding>
+                                             <Insets left="10.0" />
+                                          </padding>
+                                       </Label>
+                                    </children>
+                                 </GridPane>
+                                 <StackPane fx:id="appointmentListPanelPlaceholder" layoutX="134.0" layoutY="130.0" minHeight="500.0" minWidth="500.0" prefHeight="571.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+                              </children></AnchorPane>
+                     </content>
+                        <graphic>
+                           <Text fill="#37b4ee" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                               <font>
-                                 <Font name="System Bold" size="13.0" />
+                                 <Font size="18.0" />
                               </font>
-                           </Label>
-                           <Label fx:id="appointmentEndTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="End Date" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="1" />
-                           <Label fx:id="patientName" styleClass="cell_small_label" text="Patient" textFill="#37b4ee" wrapText="true" GridPane.columnIndex="2" />
-                           <Label fx:id="description1" prefWidth="70.0" styleClass="cell_small_label" text="Tags" textFill="#37b4ee" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="4">
-                              <padding>
-                                 <Insets left="10.0" />
-                              </padding>
-                           </Label>
-                        </children>
-                     </GridPane>
-                <StackPane fx:id="appointmentListPanelPlaceholder" minHeight="500.0" minWidth="500.0" prefHeight="571.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" />
-                          <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" minWidth="500.0" prefHeight="100" styleClass="pane-with-border" />
-                          <StackPane fx:id="commandBoxPlaceholder" minWidth="500.0" styleClass="pane-with-border" VBox.vgrow="NEVER" />
-                  </children>
-               </VBox>
-            </center>
-            <bottom>
-                    <StackPane fx:id="statusbarPlaceholder" BorderPane.alignment="CENTER" />
-            </bottom>
-            <right>
-               <VBox prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                           </Text>
+                        </graphic>
+                   </Tab>
+                   <Tab>
+                     <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                 <StackPane fx:id="calendarPanelPlaceholder" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                              </children>
+                           </AnchorPane>
+                     </content>
+                        <graphic>
+                           <Text fill="#37b4ee" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Text>
+                        </graphic>
+                   </Tab>
+                 </tabs>
+               </TabPane>
+               <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" minWidth="500.0" prefHeight="100" styleClass="pane-with-border" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               <StackPane fx:id="commandBoxPlaceholder" minWidth="500.0" prefHeight="30.0" styleClass="pane-with-border" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               <VBox prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
                   <children>
                      <Label text="Patients" textFill="#37b4ee">
                         <font>
                            <Font name="System Bold" size="26.0" />
                         </font>
                      </Label>
-                <StackPane fx:id="personListPanelPlaceholder" prefHeight="590.0" prefWidth="320.0" VBox.vgrow="ALWAYS" />
+                     <StackPane fx:id="personListPanelPlaceholder" prefHeight="590.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   </children>
                </VBox>
-            </right>
-         </BorderPane>
+               <StackPane fx:id="statusbarPlaceholder" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            </children>
+         </AnchorPane>
          <stylesheets>
             <URL value="@Extensions.css" />
             <URL value="@WhiteBlueTheme.css" />

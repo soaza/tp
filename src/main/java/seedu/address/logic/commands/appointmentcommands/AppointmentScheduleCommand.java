@@ -71,6 +71,16 @@ public class AppointmentScheduleCommand extends Command {
             ArrayList<Patient> arr = new ArrayList<>(patientList);
             int size = arr.size();
 
+            // Patient list is empty
+            if (size == 0) {
+                throw new CommandException((MESSAGE_MISSING_PATIENT));
+            }
+
+            // index is out of bounds
+            if (index > size) {
+                throw new CommandException((MESSAGE_MISSING_PATIENT));
+            }
+
             toSchedule.parsePatient(arr, index);
 
             // Patient does not exist
@@ -88,6 +98,7 @@ public class AppointmentScheduleCommand extends Command {
                 throw new CommandException(MESSAGE_DUPLICATE_APPOINTMENT);
             }
             model.addAppointment(toSchedule);
+            model.getFilteredAppointmentList();
 
             return new CommandResult(String.format(MESSAGE_SUCCESS, toSchedule));
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {

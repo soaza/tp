@@ -12,6 +12,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPOINTMENTS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PATIENTS;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -97,12 +98,9 @@ public class PatientEditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PATIENT);
         }
 
-        model.setPatient(patientToEdit, editedPatient);
-        model.updateFilteredPatientList(PREDICATE_SHOW_ALL_PATIENTS);
-
         // patient fields has changed, need to update appointments that contain the edited patient
-        SearchPatientFilter patientFilter =
-                new SearchPatientFilter(Collections.singletonList(patientToEdit.getName().fullName));
+        final String[] splitName = patientToEdit.getName().fullName.split("\\s+");
+        SearchPatientFilter patientFilter = new SearchPatientFilter(Arrays.asList(splitName));
         model.updateFilteredAppointmentList(patientFilter);
 
         if (model.getFilteredAppointmentList() != null) { // appointments containing edited patient exists
@@ -111,6 +109,9 @@ public class PatientEditCommand extends Command {
             }
         }
         model.updateFilteredAppointmentList(PREDICATE_SHOW_ALL_APPOINTMENTS);
+
+        model.setPatient(patientToEdit, editedPatient);
+        model.updateFilteredPatientList(PREDICATE_SHOW_ALL_PATIENTS);
 
         return new CommandResult(String.format(MESSAGE_EDIT_PATIENT_SUCCESS, editedPatient));
     }

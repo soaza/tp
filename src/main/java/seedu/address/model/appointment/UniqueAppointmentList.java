@@ -88,6 +88,7 @@ public class UniqueAppointmentList {
         if (!internalList.remove(toRemove)) {
             throw new AppointmentNotFoundException();
         }
+        internalList.remove(toRemove);
     }
 
     /**

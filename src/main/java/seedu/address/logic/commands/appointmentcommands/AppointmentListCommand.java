@@ -18,7 +18,9 @@ public class AppointmentListCommand extends Command {
             + "\n"
             + "Example " + COMMAND_WORD;
 
-    public static final String MESSAGE_LIST_APPOINTMENT_SUCCESS = "Listed all upcoming appointments";
+    public static final String MESSAGE_LIST_APPOINTMENT_SUCCESS = "%1$d upcoming appointments found!"
+            + "\n"
+            + "You can view your past appointments with a-missed, a-completed or a-listall!";
 
     private final SearchAppointmentFilter predicate;
 

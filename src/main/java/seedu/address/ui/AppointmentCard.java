@@ -61,7 +61,7 @@ public class AppointmentCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         description.setText(appointment.getDescription().toString());
         patientName.setText(appointment.getPatientString());
-        isCompleted.setText(appointment.isMissed() ? "Yes" : "No");
+        isCompleted.setText(appointment.isCompleted() ? "Yes" : "No");
         appointmentStartTime.setText(appointment.getStartTime().format(formatter));
         appointmentEndTime.setText(appointment.getEndTime().format(formatter));
         isMissed.setText(appointment.isMissed() ? "Yes" : "No");

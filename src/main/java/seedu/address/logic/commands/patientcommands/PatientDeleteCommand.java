@@ -3,7 +3,7 @@ package seedu.address.logic.commands.patientcommands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPOINTMENTS;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.commons.core.Messages;
@@ -47,20 +47,20 @@ public class PatientDeleteCommand extends Command {
         }
 
         Patient patientToDelete = lastShownList.get(targetIndex.getZeroBased());
-        model.deletePatient(patientToDelete);
 
         // patient fields has changed, need to delete appointments that contain the deleted patient
         assert patientToDelete != null;
-        SearchPatientFilter patientFilter =
-                new SearchPatientFilter(Collections.singletonList(patientToDelete.getName().fullName));
+        final String[] splitName = patientToDelete.getName().fullName.split("\\s+");
+        SearchPatientFilter patientFilter = new SearchPatientFilter(Arrays.asList(splitName));
         model.updateFilteredAppointmentList(patientFilter);
 
-        if (model.getFilteredAppointmentList() != null) { // appointments containing deleted patient exists
-            for (Appointment appointment : model.getFilteredAppointmentList()) {
-                model.deleteAppointment(appointment);
-            }
+        List<Appointment> appointmentList = model.getFilteredAppointmentList();
+        while (appointmentList.size() != 0) {
+            model.deleteAppointment(appointmentList.get(0));
         }
         model.updateFilteredAppointmentList(PREDICATE_SHOW_ALL_APPOINTMENTS);
+
+        model.deletePatient(patientToDelete);
 
         return new CommandResult(String.format(MESSAGE_DELETE_PATIENT_SUCCESS, patientToDelete));
     }
