@@ -142,20 +142,23 @@ public class Patient {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName())
-                .append(" Gender: ")
+        builder.append("\nName: ")
+                .append(getName())
+                .append("\nGender: ")
                 .append(getGender())
-                .append(" Birthdate: ")
+                .append("\nBirthdate: ")
                 .append(getBirthdate())
-                .append(" BloodType: ")
+                .append("\nBloodType: ")
                 .append(getBloodType())
-                .append(" Phone: ")
+                .append("\nPhone: ")
                 .append(getPhone())
-                .append(" Email: ")
+                .append("\nEmail: ")
                 .append(getEmail())
-                .append(" Address: ")
+                .append("\nAddress: ")
                 .append(getAddress())
-                .append(" Tags: ");
+                .append("\nRemark: ")
+                .append(getRemark() == null ? "" : getRemark().value)
+                .append("\nTags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }

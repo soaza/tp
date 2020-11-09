@@ -1,0 +1,40 @@
+@startuml
+start
+:User enters input for 'a-schedule' command;
+:AppointmentScheduleCommandParser parses User's input;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+'fork
+':Parse 'start/DATETIME';
+':Parse 'end/DATETIME';
+':AppointmentTime object with
+'start time and end time created;
+'fork again
+':Parse 'd/DESCRIPTION';
+':Description object with
+'description string created;
+'fork again
+':Parse 't/TAGS';
+':Hashset<Tags> with
+'all tags created;
+'fork again
+':Parse 'pt/PATIENT_INDEX';
+':AppointmentScheduleCommandParser
+'retrieves Patient in Model at parsed index;
+'end fork
+:New AppointmentScheduleCommand object,
+with Appointment to schedule with fields
+   (1) String patientString: 'patientIndex'
+   (2) Patient patient: null
+created;
+:AppointmentScheduleCommand executed by LogicManager;
+:Appointment object's parsePatient() method called;
+:'patient' in Appointment set to Patient at 'patientIndex'
+in Model's filteredPatientList;
+:New Appointment with complete fields:
+   (1) String patientString: patient's full name
+   (2) Patient patient: patient at 'patientIndex' in Model's filteredPatientList
+scheduled;
+stop
+@enduml

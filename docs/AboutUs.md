@@ -27,7 +27,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/yeohhq.md)]
 
 * Role: Developer
-* Responsibilities: Testing + UI
+* Responsibilities: DevOps + Documentation
 
 ### Gordon Foo
 
@@ -47,7 +47,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/jimvae.md)]
 
 * Role: Developer
-* Responsibilities: Testing
+* Responsibilities: Ui + Testing
 
 ### Chew Hoa Shen
 

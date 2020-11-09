@@ -33,7 +33,7 @@ public class AppointmentCompleteCommand extends Command {
     public static final String MESSAGE_ALREADY_COMPLETE = "This appointment has already been completed.";
     // public static final String MESSAGE_ALREADY_MISSED = "This appointment has already been missed.";
     public static final String ASSERT_ALREADY_COMPLETE = "AppointmentCompleteCommand should not run on appointments"
-            + "which already been completed.";
+            + " which already been completed.";
     // public static final String ASSERT_ALREADY_MISSED = "AppointmentCompleteCommand should not run on appointments"
     //       + "which already been missed.";
 
@@ -63,7 +63,7 @@ public class AppointmentCompleteCommand extends Command {
         } //else if (appointmentToComplete.isMissed()) {
         //      throw new CommandException(MESSAGE_ALREADY_MISSED);
         // }
-        assert appointmentToComplete.isCompleted() : ASSERT_ALREADY_COMPLETE;
+        // assert appointmentToComplete.isCompleted() : ASSERT_ALREADY_COMPLETE;
         // assert appointmentToComplete.isMissed() : ASSERT_ALREADY_MISSED;
 
         // Create duplicate appointment with only difference being isCompleted set to true
@@ -89,7 +89,7 @@ public class AppointmentCompleteCommand extends Command {
         Set<Tag> tags = appointmentToComplete.getTags();
 
         Boolean isCompleted = true;
-        Boolean isMissed = appointmentToComplete.isMissed();
+        Boolean isMissed = false;
 
         return new Appointment(appointmentTime, patient, tags, isCompleted, isMissed,
                 description);

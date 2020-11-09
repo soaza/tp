@@ -9,6 +9,13 @@ public class UndoCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Command undone.";
     public static final String MESSAGE_NO_UNDO_HISTORY_ERROR = "Nothing to undo!";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Restore the state before the previous command. "
+            + "\n"
+            + "Example: " + COMMAND_WORD;
+
+    public UndoCommand() {
+
+    }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -18,5 +25,11 @@ public class UndoCommand extends Command {
             model.undoHistory();
             return new CommandResult("Command undone.", false, false, false);
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof UndoCommand); // instanceof handles nulls
     }
 }

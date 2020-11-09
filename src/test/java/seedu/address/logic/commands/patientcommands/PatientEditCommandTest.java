@@ -38,7 +38,7 @@ public class PatientEditCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        Patient editedPatient = new PatientBuilder().build();
+        Patient editedPatient = model.getFilteredPatientList().get(INDEX_FIRST_PATIENT.getZeroBased());
         EditPatientDescriptor descriptor = new EditPatientDescriptorBuilder(editedPatient).build();
         PatientEditCommand patientEditCommand = new PatientEditCommand(INDEX_FIRST_PATIENT, descriptor);
 

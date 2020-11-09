@@ -9,7 +9,7 @@ import seedu.address.model.Model;
 import seedu.address.model.filters.appointmentfilters.SearchAppointmentTodayFilter;
 
 /**
- * Finds and lists all the appointments today in the addressbook.
+ * Finds and lists all the appointments occuring at the current date in the addressbook.
  */
 public class AppointmentTodayCommand extends Command {
 

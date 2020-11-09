@@ -5,10 +5,12 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -60,15 +62,30 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane calendarPanelPlaceholder;
 
+
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private AnchorPane paneCalendar;
+
+    @FXML
+    private AnchorPane paneDashboard;
+
+    @FXML
+    private Button buttonDashboard;
+
+    @FXML
+    private Button buttonCalendar;
+
+
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
-
+        paneDashboard.toFront();
         // Set dependencies
         this.primaryStage = primaryStage;
         this.logic = logic;
@@ -79,8 +96,18 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
-
     }
+
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        if (event.getSource() == buttonCalendar) {
+            paneCalendar.toFront();
+        } else if (event.getSource() == buttonDashboard) {
+            paneDashboard.toFront();
+        }
+    }
+
+
 
     public Stage getPrimaryStage() {
         return primaryStage;

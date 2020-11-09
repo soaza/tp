@@ -20,6 +20,10 @@ public class UserHistoryManager {
         this.redoHistory = new Stack<>();
     }
 
+    /**
+     * Add initial history to UserHistoryManager
+     * @param pair current user history
+     */
     public void initialiseHistory(Pair<List<Patient>, List<Appointment>> pair) {
         this.userHistory.add(pair);
     }
@@ -28,7 +32,7 @@ public class UserHistoryManager {
      * Add user history to stack
      * @param p current user history
      */
-    public void addHistory(Pair p) {
+    public void addHistory(Pair<List<Patient>, List<Appointment>> p) {
         userHistory.add(p);
     }
 

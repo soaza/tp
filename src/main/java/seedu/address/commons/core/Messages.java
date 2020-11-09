@@ -12,5 +12,12 @@ public class Messages {
     public static final String MESSAGE_INVALID_APPOINTMENT_DISPLAYED_INDEX =
             "The appointment index provided is invalid";
     public static final String MESSAGE_APPOINTMENTS_LISTED_OVERVIEW = "%1$d appointment(s) listed!";
+    public static final String MESSAGE_APPOINTMENT_BACKDATED =
+            "Appointments can only be scheduled for future appointment time.\n"
+            + "i.e. you cannot schedule an Appointment before the current time.";
+    public static final String MESSAGE_APPOINTMENT_DURATION = "Appointment duration cannot exceed 24 hours.";
+    public static final String MESSAGE_INVALID_APPOINTMENT_SLOT = "That time slot is already taken.";
+    public static final String MESSAGE_DUPLICATE_APPOINTMENT = "This appointment already exists in Archangel.";
+
 
 }

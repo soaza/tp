@@ -2,6 +2,7 @@ package seedu.address.logic.commands.appointmentcommands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.appointmentcommands.AppointmentCommandTestUtil.showAppointmentAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPOINTMENT;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPOINTMENT;
 
@@ -48,8 +49,6 @@ public class AppointmentDeleteCommandTest {
                 Messages.MESSAGE_INVALID_APPOINTMENT_DISPLAYED_INDEX);
     }
 
-    // UNCOMMENT THIS TEST WHEN FILTERS ARE DONE
-    /*
     @Test
     public void execute_invalidIndexFilteredList_throwsCommandException() {
         showAppointmentAtIndex(model, INDEX_FIRST_APPOINTMENT);
@@ -63,7 +62,7 @@ public class AppointmentDeleteCommandTest {
         AppointmentCommandTestUtil.assertCommandFailure(appointmentDeleteCommand, model,
                 Messages.MESSAGE_INVALID_APPOINTMENT_DISPLAYED_INDEX);
     }
-    */
+
 
 
     @Test

@@ -11,12 +11,14 @@ import static seedu.address.testutil.TypicalAppointments.TODAY_APPOINTMENT;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.appointment.Appointment;
 import seedu.address.model.filters.appointmentfilters.SearchAppointmentWeekFilter;
 import seedu.address.testutil.TypicalAppointments;
 
@@ -28,8 +30,9 @@ public class AppointmentWeekCommandTest {
 
     private Model model = new ModelManager(TypicalAppointments.getTypicalAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(TypicalAppointments.getTypicalAddressBook(), new UserPrefs());
-    private Model model2 = new ModelManager(TypicalAppointments.getTypicalAddressBook2(), new UserPrefs());
-    private Model expectedModel2 = new ModelManager(TypicalAppointments.getTypicalAddressBook2(), new UserPrefs());
+    private Model model2 = new ModelManager(TypicalAppointments.getTypicalAddressBookForEdit(), new UserPrefs());
+    private Model expectedModel2 = new ModelManager(TypicalAppointments.getTypicalAddressBookForEdit(),
+            new UserPrefs());
 
 
     @Test
@@ -76,7 +79,20 @@ public class AppointmentWeekCommandTest {
         AppointmentWeekCommand command = new AppointmentWeekCommand(predicate);
         expectedModel.updateFilteredAppointmentList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(TODAY_APPOINTMENT, THIS_WEEK_SATURDAY_APPOINTMENT, THIS_WEEK_SUNDAY_APPOINTMENT),
-                model.getFilteredAppointmentList());
+
+        List<Appointment> appointmentArrayList =
+                Arrays.asList(TODAY_APPOINTMENT, THIS_WEEK_SATURDAY_APPOINTMENT, THIS_WEEK_SUNDAY_APPOINTMENT);
+        appointmentArrayList.sort((a1, a2) -> {
+                if (a1.getStartTime().isBefore(a2.getStartTime())) {
+                    return -1;
+                } else if (a1.getStartTime().isEqual(a2.getStartTime())
+                        && a1.getEndTime().isBefore(a2.getEndTime())) {
+                    return 0;
+                }
+                return 1;
+            }
+        );
+
+        assertEquals(appointmentArrayList, model.getFilteredAppointmentList());
     }
 }

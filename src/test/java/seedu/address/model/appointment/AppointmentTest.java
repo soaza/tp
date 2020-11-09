@@ -23,27 +23,27 @@ public class AppointmentTest {
         assertThrows(UnsupportedOperationException.class, () -> appointment.getTags().remove(0));
     }
 
-    //    @Test
-    //    public void isSameAppointment() {
-    //        // same object -> returns true
-    //        assertTrue(APT1.isSameAppointment(APT1));
-    //
-    //        // null -> returns false
-    //        //        assertFalse(APT1.isSameAppointment(null));
-    //
-    //        // different date and time -> returns false
-    //        Appointment editedApt1 = new AppointmentBuilder(APT1)
-    //                .withAppointmentTime(VALID_START_TWO, VALID_END_TWO).build();
-    //        assertFalse(APT1.isSameAppointment(editedApt1));
-    //
-    //        // different description -> returns false
-    //        editedApt1 = new AppointmentBuilder(APT1).withDescription(VALID_DESCRIPTION_TWO).build();
-    //        assertFalse(APT1.isSameAppointment(editedApt1));
-    //
-    //        // different patient-> returns false
-    //        editedApt1 = new AppointmentBuilder(APT1).withPatient(BOB).build();
-    //        assertFalse(APT1.isSameAppointment(editedApt1));
-    //    }
+    @Test
+    public void isSameAppointment() {
+        // same object -> returns true
+        assertTrue(APT1.isSameAppointment(APT1));
+
+        // null -> returns false
+        assertFalse(APT1.isSameAppointment(null));
+
+        // different date and time -> returns false
+        Appointment editedApt1 = new AppointmentBuilder(APT1)
+                    .withAppointmentTime(VALID_START_TWO, VALID_END_TWO).build();
+        assertFalse(APT1.isSameAppointment(editedApt1));
+
+        // different description -> returns false
+        editedApt1 = new AppointmentBuilder(APT1).withDescription(VALID_DESCRIPTION_TWO).build();
+        assertFalse(APT1.isSameAppointment(editedApt1));
+
+        // different patient-> returns false
+        editedApt1 = new AppointmentBuilder(APT1).withPatient(BOB).build();
+        assertFalse(APT1.isSameAppointment(editedApt1));
+    }
 
     @Test
     public void equals() {

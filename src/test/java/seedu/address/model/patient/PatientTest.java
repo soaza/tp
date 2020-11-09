@@ -3,7 +3,10 @@ package seedu.address.model.patient;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_BIRTHDATE_BOB;
+import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_BLOODTYPE_BOB;
 import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_GENDER_BOB;
 import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.patientcommands.PatientCommandTestUtil.VALID_TAG_HUSBAND;
@@ -74,6 +77,18 @@ public class PatientTest {
 
         // different name -> returns false
         Patient editedAlice = new PatientBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different gender -> returns false
+        editedAlice = new PatientBuilder(ALICE).withGender(VALID_GENDER_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different bloodtype -> returns false
+        editedAlice = new PatientBuilder(ALICE).withBloodType(VALID_BLOODTYPE_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different birthdate -> returns false
+        editedAlice = new PatientBuilder(ALICE).withBirthdate(VALID_BIRTHDATE_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different phone -> returns false

@@ -27,19 +27,21 @@ public class AppointmentCompleteCommandTest {
     public void execute_validIndexUnfilteredList_success() {
         Appointment appointmentToComplete = model.getFilteredAppointmentList()
                 .get(INDEX_FIRST_APPOINTMENT.getZeroBased());
+        Appointment copyOfAppointmentToComplete = new AppointmentBuilder(appointmentToComplete).build();
         AppointmentCompleteCommand appointmentCompleteCommand = new AppointmentCompleteCommand(INDEX_FIRST_APPOINTMENT);
 
         String expectedMessage = String.format(AppointmentCompleteCommand.MESSAGE_COMPLETE_APPOINTMENT_SUCCESS,
                 appointmentToComplete);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.completeAppointment(appointmentToComplete);
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        expectedModel.completeAppointment(copyOfAppointmentToComplete);
 
         AppointmentCommandTestUtil.assertCommandSuccess(appointmentCompleteCommand, model,
                 expectedMessage, expectedModel);
     }
+    */
 
-     */
+
 
     @Test
     public void execute_invalidIndexUnfilteredList_throwsCommandException() {

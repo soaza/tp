@@ -134,7 +134,7 @@ public class AddressBookParser {
             return new AppointmentCompleteCommandParser().parse(arguments);
 
         case AppointmentNewMissesCommand.COMMAND_WORD:
-            return new AppointmentNewMissesCommandParser().parse();
+            return new AppointmentNewMissesCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
@@ -146,10 +146,10 @@ public class AddressBookParser {
             return new HelpCommand();
 
         case UndoCommand.COMMAND_WORD:
-            return new UndoCommand();
+            return new UndoCommandParser().parse(arguments);
 
         case RedoCommand.COMMAND_WORD:
-            return new RedoCommand();
+            return new RedoCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

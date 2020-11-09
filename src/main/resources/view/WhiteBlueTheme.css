@@ -1,8 +1,32 @@
 #tags .label {
     -fx-text-fill: white;
-    -fx-background-color: #8dcce3;
+    -fx-background-color: #2196F3;
     -fx-padding: 1 3 1 3;
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+}
+
+#buttonDashboard, #buttonCalendar {
+    -fx-background-color:  #2196F3;
+    -fx-text-fill: white;
+    -fx-pref-width: 90;
+    -fx-pref-height: 90;
+    -fx-font-family: SansSerif;
+}
+
+
+#appointmentStartTime, #appointmentEndTime, #patientName, #description, #description1, #isMissed, #isCompleted {
+    -fx-text-fill: #000000;
+    -fx-font-size: 16;
+}
+
+#id1, #appointmentStartTime1, #appointmentEndTime1, #patientName1, #description2, #isMissed11, #isMissed1,
+#isCompleted1 {
+    -fx-text-fill: #2196F3;
+    -fx-font-size: 12;
+}
+
+#resultDisplay {
+    -fx-font-size: 16;
 }

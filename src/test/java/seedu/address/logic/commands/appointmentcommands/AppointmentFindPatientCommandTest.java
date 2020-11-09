@@ -13,12 +13,14 @@ import static seedu.address.testutil.TypicalAppointments.TODAY_APPOINTMENT;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.appointment.Appointment;
 import seedu.address.model.filters.appointmentfilters.SearchPatientFilter;
 import seedu.address.testutil.TypicalAppointments;
 
@@ -85,8 +87,21 @@ public class AppointmentFindPatientCommandTest {
         AppointmentFindPatientCommand command = new AppointmentFindPatientCommand(predicate);
         expectedModel.updateFilteredAppointmentList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(APT2, TODAY_APPOINTMENT, THIS_WEEK_SATURDAY_APPOINTMENT,
-                THIS_WEEK_SUNDAY_APPOINTMENT, NEXT_WEEK_APPOINTMENT), model.getFilteredAppointmentList());
+
+        List<Appointment> appointmentArrayList =
+                Arrays.asList(APT2, TODAY_APPOINTMENT, THIS_WEEK_SATURDAY_APPOINTMENT,
+                        THIS_WEEK_SUNDAY_APPOINTMENT, NEXT_WEEK_APPOINTMENT);
+        appointmentArrayList.sort((a1, a2) -> {
+                if (a1.getStartTime().isBefore(a2.getStartTime())) {
+                    return -1;
+                } else if (a1.getStartTime().isEqual(a2.getStartTime())
+                        && a1.getEndTime().isBefore(a2.getEndTime())) {
+                    return 0;
+                }
+                return 1;
+            }
+        );
+        assertEquals(appointmentArrayList, model.getFilteredAppointmentList());
     }
 
     /**

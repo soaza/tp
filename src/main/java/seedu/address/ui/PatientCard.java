@@ -35,19 +35,20 @@ public class PatientCard extends UiPart<Region> {
     @FXML
     private Label birthdate;
     @FXML
-    private Label bloodtype;
-    @FXML
     private Label id;
     @FXML
     private Label phone;
+    @FXML
+    private FlowPane tags;
+    @FXML
+    private Label bloodtype;
     @FXML
     private Label address;
     @FXML
     private Label email;
     @FXML
     private Label remark;
-    @FXML
-    private FlowPane tags;
+
 
     /**
      * Creates a {@code PersonCode} with the given {@code Patient} and index to display.
@@ -57,13 +58,14 @@ public class PatientCard extends UiPart<Region> {
         this.patient = patient;
         id.setText(displayedIndex + ". ");
         name.setText(patient.getName().fullName);
+
+        bloodtype.setText(patient.getBloodType().value);
+        address.setText(patient.getAddress().value);
+        email.setText(patient.getEmail().value);
         gender.setText(patient.getGender().value);
         birthdate.setText(patient.getBirthdate().value);
-        bloodtype.setText(patient.getBloodType().value);
         phone.setText(patient.getPhone().value);
-        address.setText(patient.getAddress().value);
         remark.setText(patient.getRemark().value);
-        email.setText(patient.getEmail().value);
         patient.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

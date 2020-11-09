@@ -111,31 +111,31 @@ public class PatientAddCommandParserTest {
         assertParseFailure(parser, VALID_NAME_BOB + GENDER_DESC_BOB
                         + BIRTHDATE_DESC_BOB + BLOODTYPE_DESC_BOB
                         + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB,
-                expectedMessage);
+                expectedMessage + "\n" + "Missing fields: NAME.");
 
         // missing phone prefix
         assertParseFailure(parser, NAME_DESC_BOB + GENDER_DESC_BOB
                         + BIRTHDATE_DESC_BOB + BLOODTYPE_DESC_BOB
                         + VALID_PHONE_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB,
-                expectedMessage);
+                expectedMessage + "\n" + "Missing fields: PHONE.");
 
         // missing email prefix
         assertParseFailure(parser, NAME_DESC_BOB + GENDER_DESC_BOB
                         + BIRTHDATE_DESC_BOB + BLOODTYPE_DESC_BOB
                         + PHONE_DESC_BOB + VALID_EMAIL_BOB + ADDRESS_DESC_BOB,
-                expectedMessage);
+                expectedMessage + "\n" + "Missing fields: EMAIL.");
 
         // missing address prefix
         assertParseFailure(parser, NAME_DESC_BOB + GENDER_DESC_BOB
                         + BIRTHDATE_DESC_BOB + BLOODTYPE_DESC_BOB
                         + PHONE_DESC_BOB + EMAIL_DESC_BOB + VALID_ADDRESS_BOB,
-                expectedMessage);
+                expectedMessage + "\n" + "Missing fields: ADDRESS.");
 
         // all prefixes missing
         assertParseFailure(parser, VALID_NAME_BOB + GENDER_DESC_BOB
                         + BIRTHDATE_DESC_BOB + BLOODTYPE_DESC_BOB
                         + VALID_PHONE_BOB + VALID_EMAIL_BOB + VALID_ADDRESS_BOB,
-                expectedMessage);
+                expectedMessage + "\n" + "Missing fields: NAME, PHONE, EMAIL, ADDRESS.");
     }
 
     @Test

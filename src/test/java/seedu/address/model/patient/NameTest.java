@@ -37,4 +37,32 @@ public class NameTest {
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
         assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
     }
+
+    @Test
+    public void testToString() {
+        Name name = new Name("peter jack");
+        String expected = "peter jack";
+        assertTrue(name.toString().equals(expected));
+    }
+
+    @Test
+    public void areEqualNames() {
+        // equal names
+        assertTrue(new Name("peter jack").equals(new Name("peter jack")));
+
+        // not equal names
+        assertFalse(new Name("Peter jack").equals(new Name("peter jack"))); // different letter casing
+    }
+
+    @Test
+    public void testHashcode() {
+        // equal hashcodes
+        Name firstName = new Name("peter jack");
+        Name secondName = new Name("peter jack");
+        assertTrue(firstName.hashCode() == secondName.hashCode());
+
+        // not equal hashcodes
+        Name thirdName = new Name("David Roger Jackson Ray Jr 2nd");
+        assertFalse(firstName.hashCode() == thirdName.hashCode());
+    }
 }

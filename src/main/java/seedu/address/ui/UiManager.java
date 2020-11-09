@@ -20,11 +20,10 @@ public class UiManager implements Ui {
     public static final String ALERT_DIALOG_PANE_FIELD_ID = "alertDialogPane";
 
     private static final Logger logger = LogsCenter.getLogger(UiManager.class);
-    private static final String ICON_APPLICATION = "/images/address_book_32.png";
+    private static final String ICON_APPLICATION = "/images/Archangel.png";
 
     private Logic logic;
     private MainWindow mainWindow;
-    private MainWindow calenderWindow;
 
     /**
      * Creates a {@code UiManager} with the given {@code Logic}.
@@ -41,7 +40,6 @@ public class UiManager implements Ui {
         //Set the application icon.
         primaryStage.getIcons().add(getImage(ICON_APPLICATION));
 
-        Stage anotherStage = new Stage();
         try {
             mainWindow = new MainWindow(primaryStage, logic);
             mainWindow.show(); //This should be called before creating other UI parts

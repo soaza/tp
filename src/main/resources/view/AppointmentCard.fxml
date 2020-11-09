@@ -13,39 +13,34 @@
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane prefHeight="75.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="200.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="60.0" prefWidth="60.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="60.0" prefWidth="60.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="60.0" prefWidth="60.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="80.0" prefWidth="80.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="40.0" prefWidth="60.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" prefWidth="60.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" prefWidth="60.0" />
         </columnConstraints>
-         <HBox alignment="CENTER_LEFT" minHeight="50.0" spacing="5">
-             <Label fx:id="id" styleClass="cell_big_label">
-                 <minWidth>
-                     <!-- Ensures that the label text is never truncated -->
-                     <Region fx:constant="USE_PREF_SIZE" />
-                 </minWidth>
-             </Label>
+         <HBox alignment="CENTER_LEFT" minHeight="50.0" spacing="5" GridPane.columnIndex="1">
              <Label fx:id="appointmentStartTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="\$first" wrapText="true">
             <font>
-               <Font name="System Bold" size="15.0" />
+               <Font name="System Bold" size="15.0"  />
             </font>
          </Label>
                   </HBox>
-         <Label fx:id="isCompleted" styleClass="cell_small_label" text="Completed:" wrapText="true" GridPane.columnIndex="6">
+         <Label fx:id="isCompleted" styleClass="cell_big_label" text="Completed:" wrapText="true" GridPane.columnIndex="7">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-         <Label fx:id="isMissed" styleClass="cell_small_label" text="Missed:" wrapText="true" GridPane.columnIndex="5">
+         <Label fx:id="isMissed" styleClass="cell_big_label" text="Missed:" wrapText="true" GridPane.columnIndex="6">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-         <FlowPane fx:id="tags" GridPane.columnIndex="4" />
-         <Label fx:id="description" prefWidth="70.0" styleClass="cell_small_label" text="\$" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3">
+         <FlowPane fx:id="tags" alignment="CENTER_LEFT" GridPane.columnIndex="5" />
+         <Label fx:id="description" prefHeight="19.0" styleClass="cell_big_label" text="\$" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="4">
          <padding>
             <Insets left="10.0" />
          </padding>
@@ -53,16 +48,22 @@
             <Font size="15.0" />
          </font>
       </Label>
-          <Label fx:id="appointmentEndTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="\$first" wrapText="true" GridPane.columnIndex="1">
+          <Label fx:id="appointmentEndTime" prefHeight="105.0" prefWidth="70.0" styleClass="cell_big_label" text="\$first" wrapText="true" GridPane.columnIndex="2">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-         <Label fx:id="patientName" styleClass="cell_small_label" text="\$" wrapText="true" GridPane.columnIndex="2">
+         <Label fx:id="patientName" styleClass="cell_big_label" text="\$" wrapText="true" GridPane.columnIndex="3">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+          <Label fx:id="id" styleClass="cell_big_label">
+              <minWidth>
+                  <!-- Ensures that the label text is never truncated -->
+                  <Region fx:constant="USE_PREF_SIZE" />
+              </minWidth>
+          </Label>
       <rowConstraints>
          <RowConstraints />
       </rowConstraints>

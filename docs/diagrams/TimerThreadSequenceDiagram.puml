@@ -1,0 +1,83 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":MainApp" as MainApp LOGIC_COLOR
+participant ":TimerThread" as TimerThread LOGIC_COLOR
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant "NewMissesCommandParser" as NewMissesCommandParser LOGIC_COLOR
+participant "m:NewMissesCommand" as NewMissesCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> MainApp : init()
+activate MainApp
+
+MainApp -> TimerThread : start()
+activate TimerThread
+
+loop running
+TimerThread -> LogicManager : checkNewlyMissedAppointments()
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("a-new-misses")
+activate AddressBookParser
+
+create NewMissesCommandParser
+AddressBookParser -> NewMissesCommandParser
+activate NewMissesCommandParser
+
+NewMissesCommandParser --> AddressBookParser
+deactivate NewMissesCommandParser
+
+AddressBookParser -> NewMissesCommandParser : parse()
+activate NewMissesCommandParser
+
+create NewMissesCommand
+NewMissesCommandParser -> NewMissesCommand
+activate NewMissesCommand
+
+NewMissesCommand --> NewMissesCommandParser : m
+deactivate NewMissesCommand
+
+NewMissesCommandParser --> AddressBookParser : m
+deactivate NewMissesCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+NewMissesCommandParser -[hidden]-> AddressBookParser
+destroy NewMissesCommandParser
+
+AddressBookParser --> LogicManager : m
+deactivate AddressBookParser
+
+LogicManager -> NewMissesCommand : execute()
+activate NewMissesCommand
+
+NewMissesCommand -> Model : setMissedAppointments
+activate Model
+
+Model --> NewMissesCommand
+deactivate Model
+
+create CommandResult
+NewMissesCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> NewMissesCommand
+deactivate CommandResult
+
+NewMissesCommand --> LogicManager : result
+deactivate NewMissesCommand
+
+LogicManager --> TimerThread
+deactivate LogicManager
+
+end
+
+TimerThread -> MainApp
+deactivate
+@enduml

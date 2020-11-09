@@ -10,6 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -43,6 +44,7 @@ public class AddCommandParser implements Parser<PatientAddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public PatientAddCommand parse(String args) throws ParseException {
+        boolean hasMissingFields = false;
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_GENDER,
                             PREFIX_BIRTHDATE, PREFIX_BLOODTYPE,
@@ -52,7 +54,51 @@ public class AddCommandParser implements Parser<PatientAddCommand> {
                     PREFIX_BIRTHDATE, PREFIX_BLOODTYPE,
                     PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, PatientAddCommand.MESSAGE_USAGE));
+            ArrayList<String> missingFieldsList = new ArrayList<>();
+            if (!arePrefixesPresent(argMultimap, PREFIX_NAME)) {
+                missingFieldsList.add("NAME");
+                hasMissingFields = true;
+            }
+            if (!arePrefixesPresent(argMultimap, PREFIX_GENDER)) {
+                missingFieldsList.add("GENDER");
+                hasMissingFields = true;
+            }
+            if (!arePrefixesPresent(argMultimap, PREFIX_BIRTHDATE)) {
+                missingFieldsList.add("BIRTHDATE");
+                hasMissingFields = true;
+            }
+            if (!arePrefixesPresent(argMultimap, PREFIX_BLOODTYPE)) {
+                missingFieldsList.add("BLOODTYPE");
+                hasMissingFields = true;
+            }
+            if (!arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
+                missingFieldsList.add("PHONE");
+                hasMissingFields = true;
+            }
+            if (!arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
+                missingFieldsList.add("EMAIL");
+                hasMissingFields = true;
+            }
+            if (!arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
+                missingFieldsList.add("ADDRESS");
+                hasMissingFields = true;
+            }
+            if (hasMissingFields) {
+                String missingFieldsString = "Missing fields: ";
+                for (int i = 0; i < missingFieldsList.size(); i++) {
+                    String currentMissedField = missingFieldsList.get(i);
+                    if (i == missingFieldsList.size() - 1) {
+                        missingFieldsString = missingFieldsString + currentMissedField + ".";
+                    } else {
+                        missingFieldsString = missingFieldsString + currentMissedField + ", ";
+                    }
+                }
+                String modifiedInvalidMessageCommand = MESSAGE_INVALID_COMMAND_FORMAT + '\n' + missingFieldsString;
+                throw new ParseException(String.format(modifiedInvalidMessageCommand, PatientAddCommand.MESSAGE_USAGE));
+            } else {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                                PatientAddCommand.MESSAGE_USAGE));
+            }
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());

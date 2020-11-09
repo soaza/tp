@@ -35,9 +35,10 @@ public class SearchAppointmentWeekFilter implements Predicate<Appointment> {
         LOGGER.log(Level.WARNING, LOG);
         LocalDate appointmentStartDate = appointment.getStartTime().toLocalDate();
         LocalDate appointmentEndDate = appointment.getEndTime().toLocalDate();
+        boolean completed = appointment.isCompleted();
 
-        return isLocalDateInTheSameWeek(appointmentStartDate)
-                || isLocalDateInTheSameWeek(appointmentEndDate);
+        return (isLocalDateInTheSameWeek(appointmentStartDate) || isLocalDateInTheSameWeek(appointmentEndDate))
+                    && !completed;
     }
 
     @Override

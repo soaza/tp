@@ -14,7 +14,7 @@ public class PatientListCommand extends Command {
 
     public static final String COMMAND_WORD = "p-list";
 
-    public static final String MESSAGE_SUCCESS = "Listed all persons";
+    public static final String MESSAGE_SUCCESS = "Listed all patients";
 
 
     @Override

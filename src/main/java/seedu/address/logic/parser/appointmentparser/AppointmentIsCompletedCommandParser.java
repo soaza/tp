@@ -3,7 +3,6 @@ package seedu.address.logic.parser.appointmentparser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.appointmentcommands.AppointmentIsCompletedCommand;
-import seedu.address.logic.commands.patientcommands.PatientFindCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.filters.appointmentfilters.SearchAppointmentCompletedFilter;
@@ -21,7 +20,7 @@ public class AppointmentIsCompletedCommandParser implements Parser<AppointmentIs
     public AppointmentIsCompletedCommand parse(String args) throws ParseException {
         if (!args.isEmpty()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, PatientFindCommand.MESSAGE_USAGE));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AppointmentIsCompletedCommand.MESSAGE_USAGE));
         }
 
         return new AppointmentIsCompletedCommand(new SearchAppointmentCompletedFilter(true));

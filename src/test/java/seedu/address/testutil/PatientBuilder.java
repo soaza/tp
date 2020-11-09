@@ -27,7 +27,7 @@ public class PatientBuilder {
     public static final String DEFAULT_PHONE = "9831920";
     public static final String DEFAULT_EMAIL = "alex@gmail.com";
     public static final String DEFAULT_ADDRESS = "144, Bedok West Ave 2, #08-143";
-    public static final String DEFAULT_REMARK = "";
+    public static final String DEFAULT_REMARK = "Allergic to flower";
 
     private Name name;
     private Gender gender;

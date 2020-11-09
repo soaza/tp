@@ -13,4 +13,5 @@ public class Remark {
     public Remark (String remark) {
         value = remark;
     }
+
 }

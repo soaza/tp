@@ -33,4 +33,42 @@ public class AddressTest {
         assertTrue(Address.isValidAddress("-")); // one character
         assertTrue(Address.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
     }
+
+    @Test
+    public void areEqualAddresses() {
+        // equal addresses
+        Address firstAddress = new Address("12 Kent Ridge Dr");
+        Address secondAddress = new Address("12 Kent Ridge Dr");
+        assertTrue(firstAddress.equals(secondAddress));
+
+        // equal addresses even with trailing whitespace
+        Address thirdAddress = new Address("12 Kent Ridge Dr ");
+        assertTrue(firstAddress.equals(thirdAddress));
+    }
+
+    @Test
+    public void areNotEqualAddresses() {
+        Address firstAddress = new Address("12 Kent Ridge Dr");
+        Address secondAddress = new Address("Bedok South Avenue 2");
+        assertFalse(firstAddress.equals(secondAddress));
+    }
+
+    @Test
+    public void testToString() {
+        Address address = new Address("12 Kent Ridge Dr");
+        String expected = "12 Kent Ridge Dr";
+        assertTrue(address.toString().equals(expected));
+    }
+
+    @Test
+    public void testHashcode() {
+        // equal hashcodes
+        Address firstAddress = new Address("12 Kent Ridge Dr");
+        Address secondAddress = new Address("12 Kent Ridge Dr");
+        assertTrue(firstAddress.hashCode() == secondAddress.hashCode());
+
+        // not equal hashcodes
+        Address thirdAddress = new Address("12 Bedok South Avenue");
+        assertFalse(firstAddress.hashCode() == thirdAddress.hashCode());
+    }
 }

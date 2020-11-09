@@ -97,6 +97,9 @@ public class AppointmentCommandTestUtil {
     public static final String TAG_DESC_ONE = " " + PREFIX_TAG + VALID_TAG_ONE;
     public static final String TAG_DESC_TWO = " " + PREFIX_TAG + VALID_TAG_TWO;
 
+    public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
+    public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+
     // Must follow correct date & time format
     public static final String INVALID_START_DESC = " " + PREFIX_APPOINTMENT_START + "08:00 2020-10-07";
     public static final String INVALID_END_DESC = " " + PREFIX_APPOINTMENT_END + "07-10-2020 08:00";

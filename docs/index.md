@@ -4,7 +4,7 @@ title: Archangel
 ---
 
 [![CI Status](https://github.com/AY2021S1-CS2103T-W11-1/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-W11-1/tp/actions)
-[![codecov](https://codecov.io/gh/AY2021S1-CS2103T-W11-1/tp)](https://codecov.io/gh/AY2021S1-CS2103T-W11-1/tp)
+[![codecov](https://codecov.io/gh/AY2021S1-CS2103T-W11-1/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2021S1-CS2103T-W11-1/tp)
 
 ![Ui](images/Ui.png)
 
@@ -16,4 +16,4 @@ title: Archangel
 
 **Acknowledgements**
 
-* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5), [JFXtra-Agenda](http://jfxtras.org/doc/8.0/jfxtras-agenda/jfxtras/scene/control/agenda/Agenda.html)

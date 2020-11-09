@@ -17,6 +17,7 @@ Class AppointmentListPanel
 Class AppointmentCard
 Class StatusBarFooter
 Class CommandBox
+Class CalendarPanel
 }
 
 package Model <<Rectangle>> {
@@ -33,17 +34,20 @@ HiddenOutside ..> Ui
 UiManager .left.|> Ui
 UiManager -down-> MainWindow
 MainWindow --> HelpWindow
+MainWindow *-down-> CalendarPanel
 MainWindow *-down-> CommandBox
 MainWindow *-down-> ResultDisplay
 MainWindow *-down-> PatientListPanel
 MainWindow *-down-> AppointmentListPanel
 MainWindow *-down-> StatusBarFooter
 
+
 PatientListPanel -down-> PatientCard
 AppointmentListPanel -down-> AppointmentCard
 
 MainWindow -left-|> UiPart
 
+CalendarPanel --|> UiPart
 ResultDisplay --|> UiPart
 CommandBox --|> UiPart
 PatientListPanel --|> UiPart

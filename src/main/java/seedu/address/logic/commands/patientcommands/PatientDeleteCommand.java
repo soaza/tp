@@ -3,7 +3,6 @@ package seedu.address.logic.commands.patientcommands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPOINTMENTS;
 
-import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.commons.core.Messages;
@@ -13,7 +12,7 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.appointment.Appointment;
-import seedu.address.model.filters.appointmentfilters.SearchPatientFilter;
+import seedu.address.model.filters.appointmentfilters.SearchSpecificPatientHashcodeFilter;
 import seedu.address.model.patient.Patient;
 
 /**
@@ -49,20 +48,31 @@ public class PatientDeleteCommand extends Command {
         Patient patientToDelete = lastShownList.get(targetIndex.getZeroBased());
 
         // patient fields has changed, need to delete appointments that contain the deleted patient
+        this.deleteModelAppointments(patientToDelete, model);
+
+        model.deletePatient(patientToDelete);
+
+        return new CommandResult(String.format(MESSAGE_DELETE_PATIENT_SUCCESS, patientToDelete),
+                 false, false, true);
+    }
+
+    /**
+     * Deletes appointments in given model to reflect changes to edited patient.
+     * @param patientToDelete Patient to be deleted from patient list
+     * @param model Model with list of appointments to update
+     */
+    private void deleteModelAppointments(Patient patientToDelete, Model model) {
         assert patientToDelete != null;
-        final String[] splitName = patientToDelete.getName().fullName.split("\\s+");
-        SearchPatientFilter patientFilter = new SearchPatientFilter(Arrays.asList(splitName));
+        SearchSpecificPatientHashcodeFilter patientFilter =
+                new SearchSpecificPatientHashcodeFilter(patientToDelete.hashCode());
         model.updateFilteredAppointmentList(patientFilter);
 
         List<Appointment> appointmentList = model.getFilteredAppointmentList();
         while (appointmentList.size() != 0) {
             model.deleteAppointment(appointmentList.get(0));
+            model.updateFilteredAppointmentList(patientFilter);
         }
         model.updateFilteredAppointmentList(PREDICATE_SHOW_ALL_APPOINTMENTS);
-
-        model.deletePatient(patientToDelete);
-
-        return new CommandResult(String.format(MESSAGE_DELETE_PATIENT_SUCCESS, patientToDelete));
     }
 
     @Override

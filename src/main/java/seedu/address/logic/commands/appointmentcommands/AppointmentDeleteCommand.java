@@ -43,6 +43,7 @@ public class AppointmentDeleteCommand extends Command {
 
         Appointment appointmentToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteAppointment(appointmentToDelete);
+        model.getFilteredAppointmentList();
         return new CommandResult(String.format(MESSAGE_DELETE_APPOINTMENT_SUCCESS, appointmentToDelete),
                 false, false, true);
     }

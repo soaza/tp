@@ -25,7 +25,8 @@ public class SearchAppointmentTodayFilter implements Predicate<Appointment> {
     public boolean test(Appointment appointment) {
         assert appointment.getStartTime().isBefore(appointment.getEndTime()) : ASSERTION_ERROR;
         LOGGER.log(Level.WARNING, LOG);
-        return appointment.getStartTime().toLocalDate().equals(today);
+        boolean completed = appointment.isCompleted();
+        return appointment.getStartTime().toLocalDate().equals(today) && !completed;
     }
 
     @Override

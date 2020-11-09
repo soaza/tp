@@ -70,7 +70,7 @@ public class MainApp extends Application {
 
         ui = new UiManager(logic);
 
-        timerThread = new TimerThread((logic));
+        timerThread = new TimerThread(logic);
         timerThread.start();
     }
 

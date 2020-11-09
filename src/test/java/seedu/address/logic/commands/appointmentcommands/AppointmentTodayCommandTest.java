@@ -24,8 +24,9 @@ public class AppointmentTodayCommandTest {
 
     private Model model = new ModelManager(TypicalAppointments.getTypicalAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(TypicalAppointments.getTypicalAddressBook(), new UserPrefs());
-    private Model model2 = new ModelManager(TypicalAppointments.getTypicalAddressBook2(), new UserPrefs());
-    private Model expectedModel2 = new ModelManager(TypicalAppointments.getTypicalAddressBook2(), new UserPrefs());
+    private Model model2 = new ModelManager(TypicalAppointments.getTypicalAddressBookForEdit(), new UserPrefs());
+    private Model expectedModel2 = new ModelManager(TypicalAppointments.getTypicalAddressBookForEdit(),
+            new UserPrefs());
 
     @Test
     public void equals() {

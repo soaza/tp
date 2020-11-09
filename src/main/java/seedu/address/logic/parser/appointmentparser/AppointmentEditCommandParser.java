@@ -68,8 +68,13 @@ public class AppointmentEditCommandParser implements Parser<AppointmentEditComma
                     argMultimap.getValue(PREFIX_DESCRIPTION).get()));
         }
 
+        String patientString = null;
         if (argMultimap.getValue(PREFIX_PATIENT).isPresent()) {
-            String patientString = ParserUtil.parsePatientString(argMultimap.getValue(PREFIX_PATIENT).get());
+            try {
+                patientString = ParserUtil.parsePatientString(argMultimap.getValue(PREFIX_PATIENT).get());
+            } catch (ParseException e) {
+                throw new ParseException(e.getMessage());
+            }
             editAppointmentDescriptor.setNeedsParsePatient(true);
             editAppointmentDescriptor.setPatientString(patientString);
         }

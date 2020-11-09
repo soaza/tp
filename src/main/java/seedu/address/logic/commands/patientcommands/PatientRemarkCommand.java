@@ -62,10 +62,13 @@ public class PatientRemarkCommand extends Command {
                     patientToEdit.getPhone(), patientToEdit.getEmail(),
                     patientToEdit.getAddress(), remark, patientToEdit.getTags());
 
+        // patient fields has changed, need to update appointments that contain the remarked patient
+        PatientEditCommand.editModelAppointments(patientToEdit, editedPatient, model);
+
         model.setPatient(patientToEdit, editedPatient);
         model.updateFilteredPatientList(PREDICATE_SHOW_ALL_PATIENTS);
 
-        return new CommandResult(generateSuccessMessage(editedPatient));
+        return new CommandResult(generateSuccessMessage(editedPatient), false, false, true);
     }
 
     /**
@@ -73,7 +76,7 @@ public class PatientRemarkCommand extends Command {
      * {@code patientToEdit}.
      */
     private String generateSuccessMessage(Patient patientToEdit) {
-        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = !remark.toString().isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
         return String.format(message, patientToEdit);
     }
 

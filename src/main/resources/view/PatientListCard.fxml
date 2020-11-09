@@ -7,34 +7,164 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
     </columnConstraints>
     <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
       <padding>
-        <Insets top="5" right="5" bottom="5" left="15" />
+        <Insets bottom="5" left="15" right="5" top="5" />
       </padding>
-      <HBox spacing="5" alignment="CENTER_LEFT">
+      <HBox alignment="CENTER_LEFT">
         <Label fx:id="id" styleClass="cell_big_label">
           <minWidth>
             <!-- Ensures that the label text is never truncated -->
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="name" styleClass="cell_big_label" text="\$first" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
       </HBox>
+         <HBox>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+            <children>
+               <Label minWidth="49.0" text="DOB:" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Label>
+            <Label fx:id="birthdate" graphicTextGap="1.0" styleClass="cell_small_label" text="\$birthdate" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+               </Label>
+            </children>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </HBox>
+         <HBox>
+            <children>
+               <Label minWidth="49.0" text="Phone:" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Label>
+            <Label fx:id="phone" graphicTextGap="1.0" styleClass="cell_small_label" text="\$phone" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+               </Label>
+            </children>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </HBox>
+         <HBox>
+            <children>
+               <Label minWidth="49.0" text="Gender:" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Label>
+            <Label fx:id="gender" graphicTextGap="1.0" styleClass="cell_small_label" text="\$gender" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+               </Label>
+            </children>
+         </HBox>
+         <HBox>
+            <children>
+               <Label minWidth="49.0" text="BloodType:" wrapText="true">
+                  <font>
+                     <Font size="10.0" />
+                  </font>
+               </Label>
+               <Label fx:id="bloodtype" graphicTextGap="1.0" styleClass="cell_small_label" text="\$bloodtype" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+               </Label>
+            </children>
+         </HBox>
+        <HBox>
+            <children>
+                <Label minWidth="49.0" text="Remark:" wrapText="true">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+                <Label fx:id="remark" graphicTextGap="1.0" styleClass="cell_small_label" text="\$remark" wrapText="true">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </Label>
+            </children>
+        </HBox>
+         <HBox>
+            <children>
+               <Label minWidth="49.0" text="Email:" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Label>
+               <Label fx:id="email" graphicTextGap="1.0" styleClass="cell_small_label" text="\$email" wrapText="true">
+                  <font>
+                     <Font size="10.0" />
+                  </font>
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+               </Label>
+            </children>
+         </HBox>
+         <HBox>
+            <children>
+               <Label minWidth="49.0" text="Address:" wrapText="true">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Label>
+               <Label fx:id="address" graphicTextGap="1.0" styleClass="cell_small_label" text="\$address" wrapText="true">
+                  <font>
+                     <Font size="10.0" />
+                  </font>
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+               </Label>
+            </children>
+         </HBox>
       <FlowPane fx:id="tags" />
-      <Label fx:id="gender" styleClass="cell_small_label" text="\$gender" />
-      <Label fx:id="birthdate" styleClass="cell_small_label" text="\$birthdate" />
-      <Label fx:id="bloodtype" styleClass="cell_small_label" text="\$bloodtype" />
-      <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
-      <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
-      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
-      <Label fx:id="remark" styleClass="cell_small_label" text="\$remark" />
     </VBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
   </GridPane>
 </HBox>

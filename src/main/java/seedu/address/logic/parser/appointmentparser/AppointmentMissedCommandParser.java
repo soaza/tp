@@ -3,7 +3,6 @@ package seedu.address.logic.parser.appointmentparser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.appointmentcommands.AppointmentIsMissedCommand;
-import seedu.address.logic.commands.patientcommands.PatientFindCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.filters.appointmentfilters.SearchAppointmentMissedFilter;
@@ -23,7 +22,7 @@ public class AppointmentMissedCommandParser implements Parser<AppointmentIsMisse
     public AppointmentIsMissedCommand parse(String args) throws ParseException {
         if (!args.isEmpty()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, PatientFindCommand.MESSAGE_USAGE));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AppointmentIsMissedCommand.MESSAGE_USAGE));
         }
 
         return new AppointmentIsMissedCommand(new SearchAppointmentMissedFilter());

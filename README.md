@@ -1,6 +1,6 @@
 [![CI Status](https://github.com/AY2021S1-CS2103T-W11-1/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-W11-1/tp/actions)
 
-![Ui](docs/images/Ui.png)
+![Ui](docs/images/Archangel.png)
 
 * This is **Archangel, an appointment management system for Psychiatrists**.<br>
 * The project simulates an ongoing software project for a desktop application (called _Archangel_) used for managing appointment.

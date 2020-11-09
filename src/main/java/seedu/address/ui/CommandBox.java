@@ -59,8 +59,17 @@ public class CommandBox extends UiPart<Region> {
                     suggestionPopup.hide();
                 } else {
                     LinkedList<String> searchResult = new LinkedList<>();
-                    searchResult.addAll(suggestions.subSet(commandTextField.getText(),
-                             commandTextField.getText() + Character.MAX_VALUE));
+                    if (commandTextField.getText().contains(" ")) {
+                        String[] parts = commandTextField.getText().split(" ", 2);
+                        searchResult.addAll(suggestions.subSet(
+                                parts[0].toLowerCase(),
+                                 parts[0].toLowerCase() + Character.MAX_VALUE));
+
+                    } else {
+                        searchResult.addAll(suggestions.subSet(
+                                commandTextField.getText(),
+                                commandTextField.getText() + Character.MAX_VALUE));
+                    }
                     if (suggestions.size() > 0) {
                         populatePopup(searchResult);
                         if (!suggestionPopup.isShowing()) {
@@ -97,19 +106,18 @@ public class CommandBox extends UiPart<Region> {
         // If you'd like more entries, modify this line.
         int maxEntries = 5;
         int count = Math.min(searchResult.size(), maxEntries);
-        for (int i = 0; i < count; i++) {
-            final String result = searchResult.get(i);
+        if (count == 1) {
+            final String result = searchResult.get(0);
             Label entryLabel = new Label(result);
             CustomMenuItem item = new CustomMenuItem(entryLabel, true);
-            //            item.setOnAction(new EventHandler<ActionEvent>()
-            //            {
-            //                @Override
-            //                public void handle(ActionEvent actionEvent) {
-            //                    commandTextField.setText(result);
-            //                    suggestionPopup.hide();
-            //                }
-            //            });
             menuItems.add(item);
+        } else {
+            for (int i = 0; i < count; i++) {
+                final String result = searchResult.get(i);
+                Label entryLabel = new Label(result);
+                CustomMenuItem item = new CustomMenuItem(entryLabel, true);
+                menuItems.add(item);
+            }
         }
         suggestionPopup.getItems().clear();
         suggestionPopup.getItems().addAll(menuItems);

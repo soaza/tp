@@ -28,7 +28,7 @@ public class BloodType {
      */
     public static boolean isValidBloodType(String test) {
         for (String validType: Types) {
-            if (test.contains(validType)) {
+            if (test.equals(validType)) {
                 return true;
             }
         }

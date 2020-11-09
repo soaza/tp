@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -39,7 +40,7 @@ public class UniqueAppointmentList {
     }
 
     /**
-     * Adds a appointment to the list.
+     * Adds a appointment to the list, then sorts the appointments in list by chronological order.
      * The appointment must not already exist in the list.
      */
     public void add(Appointment toAdd) {
@@ -51,11 +52,33 @@ public class UniqueAppointmentList {
     }
 
     /**
-     * Adds a appointment to the list when getting from JSON.
+     * Adds a appointment to the list when getting from JSON,
+     * then sorts the appointments in list by chronological order..
      */
     public void add(Appointment toAdd, boolean fromJson) {
         requireNonNull(toAdd);
         internalList.add(toAdd);
+    }
+
+    /**
+     * Sorts internalList of appointments chronologically, by earlier appointment startTime.
+     * If appointment startTime is equal, then sort by earlier appointment endTime.
+     */
+    public void sortAppointmentList() {
+        // Define comparator to sort internalList.
+        Comparator<Appointment> appointmentComparator = new Comparator<Appointment>() {
+            @Override
+            public int compare(Appointment a1, Appointment a2) {
+                if (a1.getStartTime().isBefore(a2.getStartTime())) {
+                    return -1;
+                } else if (a1.getStartTime().isEqual(a2.getStartTime())
+                        && a1.getEndTime().isBefore(a2.getEndTime())) {
+                    return 0;
+                }
+                return 1;
+            }
+        };
+        internalList.sort(appointmentComparator);
     }
 
     /**
@@ -128,9 +151,6 @@ public class UniqueAppointmentList {
      */
     public void setAppointments(List<Appointment> appointments) {
         requireAllNonNull(appointments);
-        //        if (!appointmentsAreUnique(appointments)) {
-        //            throw new DuplicateAppointmentException();
-        //        }
         internalList.setAll(appointments);
     }
 
@@ -140,11 +160,6 @@ public class UniqueAppointmentList {
     public ObservableList<Appointment> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
     }
-
-    //    @Override
-    //    public Iterator<Appointment> iterator() {
-    //        return internalList.iterator();
-    //    }
 
     @Override
     public boolean equals(Object other) {
@@ -158,17 +173,4 @@ public class UniqueAppointmentList {
         return internalList.hashCode();
     }
 
-    /**
-     * Returns true if {@code appointments} contains only unique appointments.
-     */
-    private boolean appointmentsAreUnique(List<Appointment> appointments) {
-        for (int i = 0; i < appointments.size() - 1; i++) {
-            for (int j = i + 1; j < appointments.size(); j++) {
-                if (appointments.get(i).isSameAppointment(appointments.get(j))) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 }

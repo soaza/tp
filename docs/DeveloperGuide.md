@@ -20,8 +20,9 @@ implementation and documentation in order to enhance and implement some of the f
 inside the software.
 
 ### 1.3 How to use this guide
-This Developer Guide is written in a top-down manner, starting with the overall architecture of Archangel, followed by in-depth descriptions of individual features implemented.
-<br></br>To navigate to a specific section in this guide, you can click on individual headers in the **Table of Contents** at the top of this markdown document to jump to that section.
+This Developer Guide is written in a top-down manner, starting with the overall architecture of Archangel, followed by in-depth descriptions of individual features implemented.  
+
+To navigate to a specific section in this guide, you can click on individual headers in the **Table of Contents** at the top of this markdown document to jump to that section.
 Within each section, we have also provided brief introductory statements where necessary.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -54,10 +55,10 @@ The ***Architecture Diagram*** given above explains the high-level design of Arc
 
 The rest of Archangel consists of four components.
 
-* [**`UI`**](#ui-component): The UI of Archangel.
-* [**`Logic`**](#logic-component): The command executor.
-* [**`Model`**](#model-component): Holds the data of Archangel in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`UI`**](#32-ui-component): The UI of Archangel.
+* [**`Logic`**](#33-logic-component): The command executor.
+* [**`Model`**](#34-model-component): Holds the data of Archangel in memory.
+* [**`Storage`**](#35-storage-component): Reads data from, and writes data to, the hard disk.
 
 Each of the four components,
 
@@ -67,21 +68,21 @@ Each of the four components,
 For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class which implements the `Logic` interface.
 
 ![Class Diagram of the Logic Component](images/LogicClassDiagram.png)
-<br></br>_Diagram 3.1.1 : Logic Class Diagram_
+_Diagram 3.1.1 : Logic Class Diagram_  
 
 **How the architecture components interact with each other**
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
 ![Interaction between components](images/ArchitectureSequenceDiagram.png)
-<br></br>_Diagram 3.1.2 : Architecture Sequence Diagram_
+_Diagram 3.1.2 : Architecture Sequence Diagram_  
 
 The sections below give more details of each component.
 
 ### 3.2 UI component
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
-<br></br>_Diagram 3.2 : UI Class Diagram_
+_Diagram 3.2 : UI Class Diagram_
 
 **API** :
 [`Ui.java`](https://github.com/AY2021S1-CS2103T-W11-1/tp/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -97,8 +98,8 @@ The `UI` component,
 
 ### 3.3 Logic component
 
-![Structure of the Logic Component](images/LogicClassDiagram.png)
-<br></br>_Diagram 3.3.1 : Logic Class Diagram_
+![Structure of the Logic Component](images/LogicClassDiagram.png) 
+_Diagram 3.3.1 : Logic Class Diagram_  
 
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-W11-1/tp/tree/master/src/main/java/seedu/address/logic/Logic.java)
@@ -112,22 +113,22 @@ The `UI` component,
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
-<br></br>_Diagram 3.3.2 : Delete Sequence Diagram_
+_Diagram 3.3.2 : Delete Sequence Diagram_ 
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### 3.4 Model component
 
-![Structure of the Model Component](images/ModelClassDiagram.png)
-<br></br>_Diagram 3.4 : Model Class Diagram_
+![Structure of the Model Component](images/ModelClassDiagram.png) 
+_Diagram 3.4 : Model Class Diagram_  
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-W11-1/tp/tree/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
+* stores Archangel's data.
 * exposes an unmodifiable `ObservableList<Patient>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
@@ -140,14 +141,14 @@ The `Model`,
 
 ### 3.5 Storage component
 
-![Structure of the Storage Component](images/StorageClassDiagram.png)
-<br></br>_Diagram 3.5 : Storage Class Diagram_
+![Structure of the Storage Component](images/StorageClassDiagram.png) 
+_Diagram 3.5 : Storage Class Diagram_
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-W11-1/tp/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save Archangel's data in json format and read it back.
 
 ### 3.6 Common classes
 
@@ -180,8 +181,8 @@ Here is a summary of the logic flow:
 #### 4.1.2 Structure of Patient Commands
 
 The following diagram shows the overview of a generic patient command `PatientXYZCommand`, where `XYZ` could be `Add`, `Delete` etc. :
-![Structure of Patient Command](images/PatientCommandStructureDiagram.png)
-<br></br>_Diagram 4.1.2 : Patient Command Structure Diagram_
+![Structure of Patient Command](images/PatientCommandStructureDiagram.png) 
+_Diagram 4.1.2 : Patient Command Structure Diagram_
 
 In each `PatientXYZCommand` class, there are static messages as follows:
 * `COMMAND_WORD` - String denoting the command word `Parser` will check for to determine which type of command user input should invoke.
@@ -220,8 +221,8 @@ This is how Adding of Patients is implemented.
 
 ##### Implementation
 
-The arguments of a Delete patient command includes the `Index` of the Patient to be deleted (see Diagram 4.1.2 and 3.3.2).
-<br></br>On execution, the `Index` object stored in the `PatientDeleteCommand` object will be used to locate the `Patient` object to be deleted from the Model.
+The arguments of a Delete patient command includes the `Index` of the Patient to be deleted (see Diagram 4.1.2 and 3.3.2).  </br>
+On execution, the `Index` object stored in the `PatientDeleteCommand` object will be used to locate the `Patient` object to be deleted from the Model.
 
 <!--
 What happens at `DeleteCommandParser().parse(arguments)`:
@@ -237,12 +238,12 @@ This is how Deleting of Patients is implemented.
 #### 4.1.5 Edit Patient
 
 ![Interactions Inside the Logic Component for the `p-edit` Command](images/PatientEditCommandSequenceDiagram.png)
-<br></br>_Diagram 4.1.5 : PatientEditCommand Sequence Diagram_
+_Diagram 4.1.5 : PatientEditCommand Sequence Diagram_
 
 ##### Implementation
 
-With reference to Diagram 4.1.5 above, the arguments of an Edit patient command includes the `Index` of the Patient selected for changes and the `changes` the User wants to make to the individual fields of a single `Patient`.
-<br></br>
+With reference to Diagram 4.1.5 above, the arguments of an Edit patient command includes the `Index` of the Patient selected for changes and the `changes` the User wants to make to the individual fields of a single `Patient`.  </br>
+
 What happens at `EditCommandParser().parse(arguments)`:
 1. An `EditPatientDescriptor` object is first created. An `EditPatientDescriptor` object contains all fields that a `Patient` has and acts as a placeholder for the changes.
 2. For each field input present in the argument, that respective field of the `EditPatientDescriptor` object will be set accordingly.
@@ -280,6 +281,8 @@ Any noteworthy details will still be included under each Appointment-type comman
 
 ##### 4.2.1.1 Implementation
 The implementation of scheduling an appointment has a similar execution as adding a patient (see 4.1.3).
+Take note that backdated appointments are allowed (i.e. appointments scheduled before current time) to be able to digitise existing appointment records from clinics.
+
 
 <!--
 The user's input is parsed by the `ScheduleAppointmentCommandParser` class which extends `Parser`, resulting in an `AppointmentScheduleCommand` which extends `Command`.
@@ -289,7 +292,9 @@ Subsequently, the `LogicManager` executes the `AppointmentScheduleCommand` objec
 The `Appointment` class stores relevant fields (e.g. `AppointmentTime`, `Description`) and the `Patient`, **and/or** a string representing the patient's index in the `ObservableList<Patient>`, depending on which constructor is invoked during execution.
 
 ##### 4.2.1.2 Reason for design of implementation:
-<!-- TO INCLUDE: AppointmentEditCommandActivityDiagram --->
+![AppointmentScheduleCommand Parsing of Patient](images/AppointmentScheduleCommandActivityDiagram.png) 
+_Diagram 4.2.1.2 : AppointmentScheduleCommand Activity Diagram_
+
 The reason for having 2 `Appointment` constructors is to improve the ease of scheduling an appointment by the user using the CLI.
 
 To address the problem of mandatory fields being highly time-consuming, we have decided to allow users to simply input a `patientIndex` to identify the patient from the visible `ObservableList<Patient>` without being concerned with typing the exact name or details of the desired patient to assign to the `Appointment`.
@@ -321,7 +326,7 @@ Subsequently, the `LogicManager` executes the `AppointmentDeleteCommand` object 
 #### 4.2.3 Edit Appointment
 
 ##### 4.2.3.1 Implementation
-The implementation of editing an appointment has a similar execution as editing a patient (see 4.1.5).
+The implementation of editing an appointment has a similar execution as editing a patient (see 4.1.5). Take note that backdated appointments are allowed to be able to digitise existing appointment records from clinics .
 
 <!--
 The user's input is parsed by the `EditAppointmentCommandParser` class which extends `Parser`, resulting in an `AppointmentEditCommand` which extends `Command`.
@@ -342,16 +347,27 @@ The reason for having an `EditAppointmentDescriptor` is to enforce immutability 
   * Pros: None.
   * Cons: Greater difficulty for users to input the new `Patient` since the `patientName` may not be unique nor accurate to an existing patient in the patient list.
 
+#### 4.2.4 Complete Appointment
 
-#### 4.2.4 Filter Appointment Commands
+##### Implementation
+Sets a specified appointment as completed. The implementation of setting an appointment as completed has a similar
+execution as editing as appointment (see 4.2.3).
 
-##### 4.2.4.1 Structure
+The unique classes associated to this command are :
+1. `AppointmentCommandParser: AppointmentCompleteCommandParser`— Creates a new AppointmentCompleteCommand object.
+2. `AppointmentCommand: AppointmentCompleteCommand`— Identifies the specified appointment from list and passes it to ModelManager to set as completed.
+
+
+#### 4.2.5 Filter Appointment Commands
+
+##### 4.2.5.1 Structure
 
 Commands involving filtering of the appointment work similarly by using filters to obtain the appointments needed. For this section, we will be exploring `AppointmentFindPatientCommand` which filters Appointments containing Patients whose name includes the given user input.
-The Command, Parser and Predicate in the class diagram below can be replaced by different sets of values from Diagram 4.2.4.1b.
+The Command, Parser and Predicate in the class diagram below can be replaced by different sets of values from Diagram 4.2.5.1b.
  ![Class Diagram for commands with filter](images/AppointmentFindPatientCommandDiagram.png)
- <br></br>_Diagram 4.2.4.1a : Appointment Commands with Filters Class Diagram_
- <br></br>Filter Appointment Commands including both its Parser and Predicate are listed below:
+_Diagram 4.2.5.1a : Appointment Commands with Filters Class Diagram_
+
+Filter Appointment Commands including both its Parser and Predicate are listed below:
 
 | Command                          | Parser                              | Predicate                        | Filters List by:                 |
 |----------------------------------|-------------------------------------|----------------------------------|----------------------------------|
@@ -363,21 +379,23 @@ The Command, Parser and Predicate in the class diagram below can be replaced by 
 | 6. AppointmentIsCompletedCommand | AppointmentIsCompletedCommandParser | SearchAppointmentCompletedFilter | Completed Appointments           |
 | 7. AppointmentListCommand        | AppointmentListCommandParser        | SearchAppointmentFilter          | Pending Appointments             |
 
- <br></br>_Diagram 4.2.4.1b : Appointment Commands with Filters Class Diagram_
+_Diagram 4.2.5.1b : Appointment Commands with Filters Class Diagram_
 
-##### 4.2.4.2 Implementation
+##### 4.2.5.2 Implementation
 The search for appointment by patient name works by filtering the appointment list to show only those appointments with
 the given patient name.
 
-![Sequence Diagram for commands with filter](images/AppointmentFindPatientSequenceDiagram.png)
-<br></br>_Diagram 4.2.4.2 : Appointment Commands with Filters Sequence Diagram_
+![Sequence Diagram for commands with filter](images/AppointmentFindPatientSequenceDiagram.png)  
+_Diagram 4.2.5.2 : Appointment Commands with Filters Sequence Diagram_
 
 The unique classes associated to `AppointmentFindPatientCommand`  command:
 1. `AppointmentFindPatientCommandParser`— Parses input arguments and creates a new AppointmentFindPatientCommand object.
 2. `SearchPatientFilter`— Checks if the appointment contains any patient which contains any keywords form the arguments.
 3. `AppointmentFindPatientCommand`— Applies the filter to the appointment list.
 
-##### 4.2.4.3 Design considerations
+The implementation of all listing filter appointment commands have a similar execution as `AppointmentFindPatientCommand`.
+
+##### 4.2.5.3 Design considerations
 * **Alternative 1 (current choice):** Store the appointments by date added.
   * Pros: Easy to implement and less overhead operations when using adding appointments.
   * Cons: May not be the fastest way to search for appointments.
@@ -388,29 +406,20 @@ The unique classes associated to `AppointmentFindPatientCommand`  command:
   You also need to update the sequence of storage file by tag every time you schedule an appointment. In addition,
   there might be a conflict for those appointments with more than one tags.
 
-#### 4.2.5 List All Appointments
-![Sequence Diagram for command to list all appointments in addressbook](images/AppointmentListAllCommand.png)
-<br></br>_Diagram 4.2.5 : Appointment List All Command Sequence Diagram_
+#### 4.2.6 List All Appointments
+![Sequence Diagram for command to list all appointments in Archangel](images/AppointmentListAllCommand.png)
+_Diagram 4.2.6 : Appointment List All Command Sequence Diagram
 
 ##### Implementation
 Listing all past and upcoming appointments from the appointment list.
 
 The unique classes associated to this command as shown from Diagram 4.2.6 are :
 1. `AppointmentCommandParser: AppointmentListAllCommandParser`— Creates a new AppointmentListAllCommand object.
-2. `AppointmentCommand: AppointmentListAllCommand`— Updates filtered appointment list to show all appointments in address bok.
-
-#### 4.2.6 Complete Appointment
-
-##### Implementation
-Sets a specified appointment as completed.
-
-The unique classes associated to this command as shown from Diagram 4.2.5 are :
-1. `AppointmentCommandParser: AppointmentCompleteCommandParser`— Creates a new AppointmentCompleteCommand object.
-2. `AppointmentCommand: AppointmentCompleteCommand`— Identifies the specified appointment from list and passes it to ModelManager to set as completed.
+2. `AppointmentCommand: AppointmentListAllCommand`— Updates filtered appointment list to show all appointments in Archangel.
 
 --------------------------------------------------------------------------------------------------------------------
 
-### 4.3 General Commands
+### 4.3 Supporting Commands
 
 #### 4.3.1 Undo/redo feature
 
@@ -462,10 +471,6 @@ The following sequence diagram shows how the undo operation works:
 
 The `redo` command does the opposite — it calls `Model#redoHistory()`, which calls `UserHistoryManager#redoHistory()`, popping the `redoHistory` stack,modifying the `AddressBook` and redo-ing the history.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
 Step 5. The user then decides to execute the command `a-list`. Commands that do not modify the address book, such as `a-list`, will usually not call `Model#undoHistory()` or `Model#redoHistory()`. Thus, the `UserHistory` remains unchanged.
 
 ![UndoRedoState4](images/UndoRedoState4.png)
@@ -485,6 +490,12 @@ However, after many test runs, we concluded that the memory usage of the user hi
 
 ##### Design consideration:
 
+* This command does not work with filter commands (`a-completed`,`a-missed`,`a-upcoming`,`a-today`,`a-find`,`a-list`)
+  as its implementation purpose is to assist the user in undo-ing his changes, filter commands do not make changes to the data.
+  It also does not work with `p-edit` as the design requires patient details to be accurate as of time schedule, such that the
+  records can accurately reflect the patient's conditions at the time of the appointment.With this concern in mind, we disabled `undo` for `p-edit` and the user can simply execute another `p-edit` command to undo
+  his changes.
+
 ###### Aspect: How undo & redo executes
 
 * **Alternative 1 (current choice):** Saves the entire address book.
@@ -499,6 +510,54 @@ However, after many test runs, we concluded that the memory usage of the user hi
 * **Alternative 3:** Individual command is contained in a `reversible-pair-action` class. When we want to `undo`, we can just call its `pair command`.
   * Pros: Will use less memory (due to the fact that are not saving any additional data).
   * Cons: Very difficult to implement, some commands might not have `pair command`(e.g for `edit`, it is own pair command but pair command to call for undo is hard to implement).
+
+--------------------------------------------------------------------------------------------------------------------
+
+### 4.4 Multi-threading
+
+#### 4.4.1 Timer Thread
+
+##### Implementation
+
+The TimerThread is a separate thread used for automatic tracking of missed appointments, and is initiated by MainApp.
+
+Here is a summary of how the Timer Thread work:
+1. On initialization, `MainApp` creates an instance of `TimerThread` and calls it's `run()` method to being running the
+thread.
+2. While `TimerThread` is running, it sleeps for 1 minute using the `Thread.sleep` method.
+3. After sleeping, `TimerThread` will call `LogicManager`'s `checkNewlyMissedAppointments`, which in turn will call
+`AddressBookParser` to `parseCommand("a-new-misses"))`.
+3. `AddressBookParser`'s `parseCommand("a-new-misses")` method will create a `NewMissesCommandParser` object and call
+its `parse()` method.
+4. This `parse()` method mentioned above will create a `AppointmentNewMissesCommand`.
+5. The `parse()` method will return a `AppointmentNewMissesCommand` object to the `LogicManager` for execution.
+6. `AppointmentNewMissesCommand` object's `execute()` method will be called and within `Model`, every `Appointment`
+which end time has been passed by 30 minutes will be labelled as missed.
+7. Steps 2 to 6 will repeat until the application is closed.
+8. On closing the application, `MainApp` calls the `TimerThread` object's `setStop()` method which will break the thread
+out of the loop.
+
+![TimerThreadSequenceDiagram](images/TimerThreadSequenceDiagram.png)
+
+##### Reason for design of implementation:
+
+The reason for having a timer on a separate thread from the main app functionality to avoid any conflicts with the manual
+commands input from the user.
+
+For ease of use, the user is not required to input any command for the `TimerThread` to run.
+
+##### Design consideration:
+
+* **Alternative 1 (current choice):** Refresh for new misses in 1 minute intervals.
+  * Pros: Less behind the scenes computation overhead, allowing for a smoother user experience.
+  * Cons: Appointments may be labelled missed up to a minute late. However, this is a minor inconvenience and most
+  likely will not be noticed by the user.
+
+* **Alternative 2:** Refresh for new misses in 10 second intervals.
+  * Pros: Appointments will be guaranteed to be correctly labelled.
+  * Cons: Additional computation overhead, leading to slower application perform. This problem will be emphasized even
+  greater as more appointments are stored.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **5. Documentation, logging, testing, configuration, dev-ops**
@@ -549,16 +608,39 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### 6.3 Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is `Archangel` (the AddressBook) and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a patient**
+**Use case: UC1 -  Add a patient**
 
 **MSS**
 
-1.  User requests to list patients
-2.  AddressBook shows a list of patients
-3.  User requests to delete a specific patient in the list
-4.  AddressBook deletes the patient
+1.  User requests to add a new patient to the list.
+2.  Archangel adds the patient.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The patient already exists in the list.
+
+    * 1a1. Archangel shows duplicate patient error message.
+
+      Use case resumes at step 1.
+
+* 1b. User inputs are invalid/incomplete.
+
+    * 1b1. Archangel shows an error message.
+
+      Use case resumes at step 1.
+
+**Use case: UC2 - Delete a patient**
+
+**MSS**
+
+1.  User requests to list patients.
+2.  Archangel shows a list of patients.
+3.  User requests to delete a specific patient in the list.
+4.  Archangel deletes the patient.
 
     Use case ends.
 
@@ -570,18 +652,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. Archangel shows an error message.
 
       Use case resumes at step 2.
 
-**Use case: Edit a patient**
+**Use case: UC3 - Edit a patient**
 
 **MSS**
 
-1.  User requests to view a patient.
-2.  AddressBook shows the patient's information.
-3.  User requests to the patient's information.
-4.  AddressBook edits the patient's information.
+1.  User requests to find a patient.
+2.  Archangel shows the patient's information.
+3.  User requests to edit the patient's information.
+4.  Archangel edits the patient's information.
 
     Use case ends.
 
@@ -589,22 +671,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. The patient is not found.
 
-    * 1a1. AddressBook shows an error message.
+    * 1a1. Archangel shows an error message.
 
       Use case ends.
 
 * 3a. The patient is not found.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. Archangel shows an error message.
 
       Use case resumes at step 2.
 
-**Use case: Schedule a patient appointment**
+* 3b. User inputs fields that are invalid/does not satisfy requirements.
+
+    * 3b1. Archangel shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: UC4 - Schedule a patient appointment**
 
 **MSS**
 
-1.  User requests to schedule a patient appointment
-2.  AddressBook schedule the patient appointment
+1.  User requests to schedule a patient appointment.
+2.  Archangel schedule the patient appointment.
 
     Use case ends.
 
@@ -612,22 +700,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. The appointment has conflict with another appointment.
 
-    * 1a1. AddressBook shows an error message.
+    * 1a1. Archangel shows an error message.
 
       Use case resumes at step 1.
 
 * 1b. The appointment's date/timing is invalid.
 
-    * 1b1. AddressBook shows an error message.
+    * 1b1. Archangel shows an error message.
 
       Use case resumes at step 1.
 
-**Use case: Delete a patient appointment**
+* 1c. The patient to be added to the appointment does not exist.
+
+    * 1c1. Archangel shows an error message.
+
+      Use case resumes at step 1.
+
+**Use case: UC5 - Delete a patient appointment**
 
 **MSS**
 
-1.  User requests to delete a specific appointment in the list
-2.  AddressBook deletes the appointment
+1.  User requests to delete a specific appointment in the list.
+2.  Archangel deletes the appointment.
 
     Use case ends.
 
@@ -635,17 +729,152 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. The appointment does not exist.
 
-    * 1a1. AddressBook shows an error message.
+    * 1a1. Archangel shows an error message.
 
       Use case resumes at step 1.
 
 * 1b. The appointment list is empty.
 
-    * 1a1. AddressBook shows an error message.
+    * 1a1. Archangel shows an error message.
 
       Use case resumes at step 1.
 
-*{More to be added}*
+**Use case: UC6 - Edit an appointment**
+
+**MSS**
+
+1.  User requests to edit the appointment's information.
+2.  Archangel edits the appointment's information.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The appointment is not found.
+
+    * 1a1. Archangel shows an error message.
+
+      Use case ends.
+
+* 1b. User inputs fields that are invalid/does not satisfy requirements.
+
+    * 1b1. Archangel shows an error message.
+
+      Use case resumes at step 1.
+
+**Use case: UC7 - Complete an appointment**
+
+**MSS**
+
+1.  User requests to set an appointment as completed.
+2.  Archangel sets the appointment as completed.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The appointment is not found.
+
+    * 1a1. Archangel shows an error message.
+
+      Use case ends.
+
+* 1b. The appointment list is empty.
+
+    * 1a1. Archangel shows an error message.
+
+      Use case resumes at step 1.
+
+**Use case: UC8 - Filter appointment list to find the upcoming appointments**
+
+**MSS**
+
+1.  User requests to view only upcoming appointments.
+2.  Archangel displays only upcoming appointments in the dashboard.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. User chose to view in the calendar tab.
+
+    * 1a1. Archangel shows the upcoming appointments in calendar format.
+
+      Use case ends.
+      
+**Use case: UC9 - Filter appointment list to find the appointments occuring today**
+This case is similar to UC8, without the Extensions.
+
+**Use case: UC10 - Filter appointment list to find tagged appointments**
+
+**MSS**
+
+1.  User requests to view only tagged appointments with their input keywords.
+2.  Archangel displays tagged appointments matching the keywords
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The keywords did not match any tags.
+
+    * 1a1. Archangel was not able to list down any appointments.
+
+      Use case ends.
+
+**Use case: UC11 - Filter appointment list by patients**
+This case is similar to UC10, with the filter being the patient name.
+
+**Use case: UC12 - Undo command**
+
+**MSS**
+
+1.  User requests to undo a previous command.
+2.  Archangel reverts back to state before previous command.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. User has not executed any undo-able commands.
+
+    * 1a1. Archangel shows an error message.
+
+      Use case ends.
+
+**Use case: UC13 - Redo command**
+
+**MSS**
+
+1.  User requests to redo a command that was undone.
+2.  Archangel reverts back to state before undo command.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. User has not undone any command.
+
+    * 1a1. Archangel shows an error message.
+
+      Use case ends.
+
+**Use case: UC14 - Close Archangel program**
+
+**MSS**
+
+1.  User finishes using Archangel program.
+2.  User closes the program.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The user does not close the program using the correct command/action.
+
+    * 1a1. Archangel continues to run.
+
+      Use case ends.
 
 ### 6.4 Non-Functional Requirements
 
@@ -659,12 +888,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### 6.5 Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Priority Patient**: A patient that requires more attention that the typical patient.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **7. Appendix: Instructions for manual testing**
+## **7. Appendix A: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -707,19 +934,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### 7.3 Viewing a patient
-
-1. Viewing a patient while all patients are shown
-
-   1. Test case: `view Kim Guan`<br>
-      Expected: Details of patient named 'Kim Guan' is shown.
-
-   2. Other incorrect delete commands to try: `view`, `view x`, `...` (where x is not in the list)<br>
-      Expected: Error details shown in status message. Status bar remains the same.
-
-2. _{ more test cases …​ }_
-
-### 7.4 Saving data
+### 7.3 Saving data
 
 1. Dealing with missing/corrupted data files
 
@@ -727,9 +942,21 @@ testers are expected to do more *exploratory* testing.
 
 2. _{ more test cases …​ }_
 
-### 8.1 Acknowledgments
+### 8. Appendix B: Effort
 
-####8.1.1 Code Related
+#### 8.1 Difficulty Level
+Archangel is a brown-field project that has modified and improved features from the original AB3. Our Archangel project implements features for 2 main entities/models, namely Appointments and Patients. 
+The inclusion of the Appointment model has increased the functionality and difficulty of the project compared to AB3 which only had Persons. 
+Additionally, our team also explored the use of other external features such as iCalendarAgenda to improve the usability of our application.
+
+#### 8.2 Challenges Faced
+As more features were implemented, we faced challenges that arose from the dependencies between the Appointment and Patient classes in order to make Archangel's functionalities more user-centric and convenient for users (e.g. Deleting a patient also results in deletion of Appointment to reduce obsolete data). 
+Many of the bugs we encountered at the beginning of the project were also due to unfamiliarity with the code base, but as time went by, identified bugs have been resolved to result in the Archangel application today.
+
+### 9. Acknowledgments
+
+#### 9.1 Code Related
 1. Implementation of Calendar feature using iCalendarAgenda
-   Credits to  Tae Kwon(https://github.com/ktaekwon000) from CS2103T-W11-4 for sharing his code base and knowledge
+   Credits to  [Tae Kwon](https://github.com/ktaekwon000) from CS2103T-W11-4 for sharing his code base and knowledge
    of iCalendarAgenda.
+1. Implementation of Tabs in the UI is inspired by [KeepToo Youtube Channel](https://www.youtube.com/watch?v=ZVtys3GgkMo)
