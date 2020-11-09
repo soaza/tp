@@ -10,10 +10,9 @@ title: User Guide
 
 ## 1. Introduction
 
-Archangel is a desktop application for managing patient appointments  designed for usage by private clinic doctors, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). <br />
+Archangel is a desktop application for managing patient appointments  designed for usage by private clinic doctors, optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). <br /><br />
 Archangel integrates storing of patient data and scheduling patient appointments in a single application.
-It supports adding, editing, deleting of patients/appointments and facilitates search using filter commands to help improve your experience in handling patient data. <br />
-For those familiar with command line interfaces, Archangel can get your patient management appointment done faster than traditional GUI apps.
+It supports adding, editing, deleting of patients/appointments and facilitates search using filter commands to help improve your experience in handling patient data. For those familiar with command line interfaces, Archangel can get your patient management appointment done faster than traditional GUI apps.
 
 ### 1.1 Archangel User Interface
 You will be using the interface displayed below when using Archangel. It consists of a "Main Dashboard" tab and a "Calendar" Tab.
@@ -65,7 +64,7 @@ These are icons that are used throughout this User Guide for better readability:
    
    <div markdown="span" class="alert alert-primary">
 :information_source: **Things to Note:**  <br />
-* For Mac users, you might get an error as shown in the image below, you can refer to the [FAQ](#faq) for more information. <br />
+* For Mac users, you might get an error as shown in the image below when opening the `archangel.jar`, you can refer to the [FAQ](#faq) for more information. <br />
       <img src="images/UserGuide/Mac_User_Step_2.png" width="150%"> <br />   
 
 --------------------------------------------------------------------------------------------------------------------
@@ -91,7 +90,7 @@ These are icons that are used throughout this User Guide for better readability:
 
 #### 2.1.1 Viewing help : `help`
 
-If you need help using Archangel, simply enter `help`, a message explaining how to access the help page.
+If you need help using Archangel, simply enter `help`, a message explaining how to access the help page will appear as shown below.
 
 ![help message](images/helpMessage.png)
 
@@ -120,13 +119,16 @@ Format: `p-add n/NAME g/GENDER bd/BIRTHDATE bt/BLOODTYPE p/PHONE_NUMBER e/EMAIL 
 Examples:
 * `p-add n/John Doe g/MALE bd/2018-12-27 bt/A+ p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25` adds a Patient with the mentioned information into Archangel.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Compulsory fields include NAME, GENDER, BIRTHDATE, BLOODTYPE, PHONE_NUMBER, EMAIL and ADDRESS <br />
 * TAGS are not compulsory <br />
 * BIRTHDATE should be in YYYY-MM-DD format. <br />
 * BLOODTYPE can be only one of the following per patient: `A+`, `A-`, `B+`, `B-`, `O`, `O+`, `O-`, `AB+`, `AB-` <br />
 * At initial launch of Archangel, there is a pre-loaded sample list of Patients. <br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
@@ -153,10 +155,13 @@ Format: `p-list`
 Examples:
 * `p-find alex` followed by `p-list` changes the patient list under view from patients with `alex` in their names to the All-Patients list
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * This is the default for Archangel, whenever Archangel is started, the patient list on the right is what you will see on `p-list`. <br />
 * Typical use case for this command is to change the current patient list that is being viewed back to the All-Patients list. <br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
@@ -181,8 +186,10 @@ Examples:
 * `p-edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st patient to be `91234567` and `johndoe@example.com` respectively.
 * `p-edit 2 n/Betsy Crower t/` Edits the name of the 2nd patient to be `Betsy Crower` and clears all existing tags.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Edits the patient at the specified INDEX. The index refers to the index number shown in the displayed patient list. The index must be a positive integer 1, 2, 3, …​ <br />
 * At least one of the optional fields must be provided. <br />
 * Existing values will be updated to the input values. <br />
@@ -190,6 +197,7 @@ Examples:
 * You can remove all the patient’s tags by typing `t/` without specifying any tags after it. <br />
 * For editing of remarks, please look at the commands specifically related to remarks. <br />
 * Note: Editing a patient will also update the patient in Appointments that contain the patient. <br />
+
 </div>
 
 
@@ -212,14 +220,17 @@ Examples:
 * `p-find John` returns `John Chew` and `John Doe`
 * `p-find alex david` returns `Alex Yeoh`, `David Li`<br>
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * The search is case-insensitive. e.g `hans` will match `Hans` <br />
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans` <br />
 * Only the name will be searched. <br />
 * Only full words will be matched e.g. `Han` will not match `Hans` <br />
 * Persons matching at least one keyword will be returned (i.e. OR search). <br />
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
@@ -240,19 +251,22 @@ Format: `p-remark INDEX r/REMARK`
 Examples:
 * `p-remark 1 r/Allergic to nuts` gives the 1st patient in the list a remark of `Allergic to nuts`
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Store a remark for the patient at the specified INDEX. <br />
 * The index refers to the index number shown in the displayed patient list. <br />
 * The index must be a positive integer 1, 2, 3, …​ <br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/p-remark_1.png" width="95%" /> <br />
-Figure 2.2.5.1: <i>Before `p-remark 1 r/Allergic to nuts`<br />
+Figure 2.2.5.1: <i>Before `p-remark 1 r/Allergic to nuts`.<br />
 (Patient Alex Yeoh has no remarks.)</i>
 <img src="images/UserGuide/p-remark_2.png" width="95%" /> <br />
-Figure 2.2.5.2: <i>After `p-remark 1 r/Allergic to nuts`<br />
+Figure 2.2.5.2: <i>After `p-remark 1 r/Allergic to nuts`.<br />
 (Patient Alex Yeoh now has a remark that says "Allergic to nuts".)</i>
 </div>
 
@@ -265,19 +279,22 @@ Format: `p-remark INDEX`
 Examples:
 * `p-remark 1` removes the Remark of the 1st patient on the list.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Removes all your remarks for the patient at the specified INDEX. <br />
 * The index refers to the index number shown in the displayed patient list. <br />
 * The index must be a positive integer 1, 2, 3, …​ <br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/p-remark_3.png" width="95%" /> <br />
-Figure 2.2.6.1: <i>Before `p-remark 1`<br />
+Figure 2.2.6.1: <i>Before `p-remark 1`.<br />
 (Patient Alex Yeoh has a remark that says "Allergic to nuts".)</i>
 <img src="images/UserGuide/p-remark_4.png" width="95%" /> <br />
-Figure 2.2.6.2: <i>After `p-remark 1`<br />
+Figure 2.2.6.2: <i>After `p-remark 1`.<br />
 (Patient Alex Yeoh no longer has a remark!)</i>
 </div>
 
@@ -290,20 +307,23 @@ Format: `p-delete INDEX`
 Examples:
 * `p-delete 1` deletes the 1st patient in Archangel and also deletes all of his/her appointments.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Deletes the patient at the specified INDEX. <br />
 * The index refers to the index number shown in the displayed patient list. <br />
 * The index must be a positive integer 1, 2, 3, …​ <br />
 * Note: Deleting a patient will also delete all Appointments that contains the deleted patient. <br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/p-delete_1.png" width="95%" /> <br />
-Figure 2.2.7.1: <i>Before `p-delete 1`<br />
+Figure 2.2.7.1: <i>Before `p-delete 1`.<br />
 (Patient Alex Yeoh is in the patient list, and the appointment list shows an appointment under Alex Yeoh.)</i>
 <img src="images/UserGuide/p-delete_2.png" width="95%" /> <br />
-Figure 2.2.7.2: <i>After `p-delete 1`<br />
+Figure 2.2.7.2: <i>After `p-delete 1`.<br />
 (Patient Alex Yeoh is no longer on the patient list, every appointment under Alex Yeoh is also removed from the All-Appointments list!)</i>
 </div>
 
@@ -319,8 +339,10 @@ Format: `a-schedule pt/INDEX start/DATE&TIME end/DATE&TIME d/DESCRIPTION [t/TAGS
 Examples:
 * `a-schedule pt/2 start/2020-12-14 08:00 end/2020-12-14 10:00 d/Review Appointment` schedules an appointment for patient at index `2` on `2020-12-14` from `08:00` to `10:00` with appointment description `Review Appointment`.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Backdated appointments are allowed for clinics to be able to digitise their existing appointment records.<br />
 * Schedules patient appointment for patient at INDEX in the displayed patient list.<br />
 * Appointment will be set to input DATE (format: YYYY-MM-DD) and TIME (format: HH:MM).<br />
@@ -328,13 +350,14 @@ Examples:
 * Appointment time (i.e. duration from `start` to `end`) cannot overlap with another existing appointment.<br />
 * Appointment duration should not exceed 24 hours.<br />
 * TAGS should be alphanumeric.<br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/a-schedule_1.png" width="95%" /> <br />
 Figure 2.3.1.1: <i>Before `a-schedule pt/2 start/2020-12-14 08:00 end/2020-12-14 10:00 d/Review Appointment`.</i>
 <img src="images/UserGuide/a-schedule_2.png" width="95%" /> <br />
-Figure 2.3.1.2: <i>After `a-schedule pt/2 start/2020-12-14 08:00 end/2020-12-14 10:00 d/Review Appointment` <br />
+Figure 2.3.1.2: <i>After `a-schedule pt/2 start/2020-12-14 08:00 end/2020-12-14 10:00 d/Review Appointment`. <br />
 (New scheduled appointment has been added to the list!).</i>
 </div>
 
@@ -348,18 +371,21 @@ Examples:
 * `a-list` followed by `a-delete 2` deletes the 2nd appointment in the Archangel.
 * `a-find Review` followed by `a-delete 1` deletes the 1st appointment in the results of the find command.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Deletes the appointment at the specified INDEX.<br />
 * The index refers to the index number shown in the displayed appointment list.<br />
 * The index must be a positive integer 1, 2, 3, …​<br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/a-delete_1.png" width="95%" /> <br />
 Figure 2.3.2.1: <i>Before `a-delete 1`.</i>
 <img src="images/UserGuide/a-delete_2.png" width="95%" /> <br />
-Figure 2.3.2.2: <i>After `a-delete 1'<br />
+Figure 2.3.2.2: <i>After `a-delete 1'.<br />
 (Appointment previously at index 1 is now gone!).</i>
 </div>
 
@@ -370,10 +396,12 @@ What if your patients decides to change his appointment details? Archangel allow
 Format: `a-edit INDEX [start/DATE&TIME] [end/DATE&TIME] [pt/PATIENT INDEX] [d/DESCRIPTION] [t/TAGS]…`
 
 Examples:
-* `a-edit 1 start/2020-11-15 12:00 end/2020-11-15 14:00 pt/2` Edits the start and end date & time of the 1st appointment to be 15/9/2020 12:00 and 15/9/2020 14:00 respectively, and edits patient to 2nd patient in patient list.
+* `a-edit 1 start/2020-11-15 12:00 end/2020-11-15 14:00 pt/2` Edits the start and end date & time of the 1st appointment to be `2020-11-15` at `12:00` and `2020-11-15` at `14:00` respectively, and edits patient to 2nd patient in patient list.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Backdated appointments are allowed to be able to digitise existing appointment records . <br />
 * Edits the appointment at the specified INDEX. The index refers to the index number shown in the displayed appointment list. The index must be a positive integer 1, 2, 3, …​ <br />
 * At least one of the optional fields must be provided.<br />
@@ -388,7 +416,7 @@ Examples:
 <img src="images/UserGuide/a-edit_1.png" width="95%" /> <br />
 Figure 2.3.3.1: <i>Before `a-edit 1 start/2020-11-15 12:00 end/2020-11-15 14:00 pt/2`.</i>
 <img src="images/UserGuide/a-edit_2.png" width="95%" /> <br />
-Figure 2.3.3.2: <i>After `a-edit 1 start/2020-11-15 12:00 end/2020-11-15 14:00 pt/2`<br />
+Figure 2.3.3.2: <i>After `a-edit 1 start/2020-11-15 12:00 end/2020-11-15 14:00 pt/2`.<br />
 (Appointment time and patient has been updated!).</i>
 </div>
 
@@ -401,18 +429,21 @@ Format: `a-complete INDEX`
 Examples:
 * `a-complete 1` Sets the appointment at index 1 as completed.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * Edits the appointment at the specified INDEX.<br />
 * The index refers to the index number shown in the displayed appointment list.<br />
 * The index must be a positive integer 1, 2, 3, …​<br />
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/a-complete_1.png" width="95%" /> <br />
 Figure 2.3.4.1: <i>Before `a-complete 1`.</i>
 <img src="images/UserGuide/a-complete_2.png" width="95%" /> <br />
-Figure 2.3.4.2: <i>After `a-complete 1`<br />
+Figure 2.3.4.2: <i>After `a-complete 1`.<br />
 (Appointment at index 1 is now labelled as Done).</i>
 </div>
 
@@ -434,7 +465,7 @@ Format: `a-listall`
 <img src="images/UserGuide/a-listall_1.png" width="95%" /> <br />
 Figure 2.3.6.1: <i>Before `a-listall`.</i>
 <img src="images/UserGuide/a-listall_2.png" width="95%" /> <br />
-Figure 2.3.6.2: <i>After `a-listall`.</i>
+Figure 2.3.6.2: <i>After `a-listall`.<br/>
 (Appointment list now displays all missed, completed and upcoming appointments!).</i>
 </div>
 
@@ -452,7 +483,7 @@ Format: `a-list`
 <img src="images/UserGuide/a-list_1.png" width="95%" /> <br />
 Figure 2.3.7.1.1: <i>Before `a-list`.</i>
 <img src="images/UserGuide/a-list_2.png" width="95%" /> <br />
-Figure 2.4.1.2: <i>After `a-list`.</i>
+Figure 2.4.1.2: <i>After `a-list`.<br/>
 (Appointment list now displays only upcoming appointments!).</i>
 </div>
 
@@ -466,21 +497,24 @@ Examples:
 * `a-find Charlotte` returns Appointment with Patient name of `Charlotte Oliveiro`
 * `a-find Jack Jill` returns Appointments with Patient name of `Jack Sparrow` and `Jill Ous`
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * The search is case-insensitive. e.g `charlotte` will match `Charlotte` <br />
 * The order of the keywords does not matter. e.g. `Jack Jill` will match `Jill Jack` <br />
 * Only the patient name inside the appointment is searched. <br />
 * Only full words will be matched e.g. `Charlotte` will not match `Charlotttee` <br />
 * Appointments matching at least one keyword will be returned (i.e. OR search). <br />
   e.g. `Jack Jill` will return Appointments with Patient name of `Jack Sparrow`, `Jill Ous`
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/a-find_1.png" width="95%" /> <br />
 Figure 2.3.7.2.1: <i>Before `a-find Charlotte`.</i>
 <img src="images/UserGuide/a-find_2.png" width="95%" /> <br />
-Figure 2.3.7.2.2: <i>After `a-find Charlotte`.</i>
+Figure 2.3.7.2.2: <i>After `a-find Charlotte`.<br/>
 (Appointment list now displays only appointments with patient names that match with "Charlotte"!).</i>
 </div>
 
@@ -494,21 +528,24 @@ Examples:
 * `a-tag LowPriority` returns Appointments tagged `LowPriority`
 * `a-tag friend enemy`  returns Appointments tagged `Friend` and `Enemy` or both
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * The search is case-insensitive. e.g `friends` will match `Friends` <br />
 * The order of the keywords does not matter. e.g. `friends enemy` will match `Friends Enemy` <br />
 * Only the tags inside the appointment will be searched. <br />
 * Only full words will be matched e.g. `Friend` will not match `Friends` <br />
 * Appointments matching at least one keyword will be returned (i.e. OR search). <br />
   e.g. `friends enemy` will return Appointment tagged with `Friends`, `Enemy`
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/a-tag_1.png" width="95%" /> <br />
 Figure 2.3.7.3.1: <i>Before `a-tag`.</i>
 <img src="images/UserGuide/a-tag_2.png" width="95%" /> <br />
-Figure 2.3.7.3.2: <i>After `a-tag`.</i>
+Figure 2.3.7.3.2: <i>After `a-tag`.<br/>
 (Appointment list now displays only appointments with the tag "LowPriority"!).</i>
 </div>
 
@@ -525,7 +562,7 @@ Examples:
 <img src="images/UserGuide/a-today_1.png" width="95%" /> <br />
 Figure 2.3.7.4.1: <i>Before `a-today`.</i>
 <img src="images/UserGuide/a-today_2.png" width="95%" /> <br />
-Figure 2.3.7.4.2: <i>After `a-today`.</i>
+Figure 2.3.7.4.2: <i>After `a-today`.<br/>
 (Appointment list now displays only upcoming appointments that are today!).</i>
 </div>
 
@@ -542,7 +579,7 @@ Examples:
 <img src="images/UserGuide/unfilteredAppointmentViewDefault.png" width="95%" /> <br />
 Figure 2.3.7.5.1: <i>Before `a-upcoming`.</i>
 <img src="images/UserGuide/a-upcoming.png" width="95%" /> <br />
-Figure 2.3.7.5.2: <i>After `a-upcoming`.</i>
+Figure 2.3.7.5.2: <i>After `a-upcoming`.<br/>
 (Appointment list now displays only upcoming appointments that are this week!).</i>
 </div>
 
@@ -559,7 +596,7 @@ Examples:
 <img src="images/UserGuide/unfilteredAppointmentViewDefault.png" width="95%" /> <br />
 Figure 2.3.7.6.1: <i>Before `a-completed`.</i>
 <img src="images/UserGuide/a-completed.png" width="95%" /> <br />
-Figure 2.3.7.6.2: <i>After `a-completed`.</i>
+Figure 2.3.7.6.2: <i>After `a-completed`.<br/>
 (Appointment list now displays only completed appointments!).</i>
 </div>
 
@@ -576,7 +613,7 @@ Examples:
 <img src="images/UserGuide/unfilteredAppointmentViewDefault.png" width="95%" /> <br />
 Figure 2.3.7.7.2: <i>Before `a-missed`.</i>
 <img src="images/UserGuide/a-missed.png" width="95%" /> <br />
-Figure 2.3.7.7.2: <i>After `a-missed`.</i>
+Figure 2.3.7.7.2: <i>After `a-missed`.<br/>
 (Appointment list now displays only missed appointments!).</i>
 </div>
 
@@ -590,8 +627,10 @@ Format: `undo`
 Examples:
 * `p-delete 1` followed by `undo` undoes the edit command and make no changes to Archangel.
 
-<div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Things to Note:**<br>
+
 * This command has no keywords.<br />
 * This command does not work with filter commands (`a-completed`,`a-missed`,`a-upcoming`,`a-today`,`a-find`,`a-list`) <br />
   as its implementation purpose is to assist the user in undo-ing his changes, filter commands do not make changes to the data.<br />
@@ -599,15 +638,16 @@ Examples:
   records can accurately reflect the patient's conditions at the time of the appointment. <br />
 * A list of commands that can be undone can be found in the table under Command Summary. <br />
 * This command can be succeeded by a `redo` command.
+
 </div>
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/Undo_Example_1.png" width="150%"> <br />
 Figure 2.4.1.1: <i>Before `a-delete 1`.</i>
 <img src="images/UserGuide/Undo_Example_2.png" width="150%" /> <br />
-Figure 2.4.1.2: <i>After `a-delete 1` (Roy is gone!).</i>
+Figure 2.4.1.2: <i>After `a-delete 1`. (Roy is gone!)</i>
 <img src="images/UserGuide/Undo_Example_3.png" width="150%" /> <br />
-Figure 2.4.1.3: <i>After `undo` (Roy is back!).</i>
+Figure 2.4.1.3: <i>After `undo`. (Roy is back!)</i>
 </div>
 
 #### 2.4.2 Redoing the previous command : `redo`
@@ -619,7 +659,9 @@ Examples:
 * `p-delete 1` followed by `undo` then `redo` redoes the `undo` command and carries out the delete command.
 
 <div markdown="span" class="alert alert-primary">
-:information_source: **Things to Note:**  <br />
+
+**:information_source: Things to Note:**<br>
+
 * This command has no keywords. <br />
 * This command must be preceded by `undo`.
 </div>
@@ -667,7 +709,7 @@ Pictorial guide for Windows:
 <img src="images/UserGuide/DownloadArchangelAndPutIntoAFolder.png" width="95%" /> <br />
    <i>Figure above shows the initial folder that Archangel is in before starting.</i>
 <img src="images/UserGuide/AfterYouInputData.png" width="95%" /> <br />
-   <i>Figure above shows the additional files including the data file after the user uses Archangel</i>
+   <i>Figure above shows the additional files including the data file after the user uses Archangel.</i>
 </div>
 
 Pictorial guide for Mac:
@@ -675,7 +717,7 @@ Pictorial guide for Mac:
 <img src="images/UserGuide/Mac_User_Step_1.png" width="95%" /> <br />
    <i>Figure above shows the initial folder that Archangel is in before starting.</i>
 <img src="images/UserGuide/Mac_User_Step_6.png" width="95%" /> <br />
-   <i>Figure above shows the additional files including the data file after the user uses Archangel</i>
+   <i>Figure above shows the additional files including the data file after the user uses Archangel.</i>
 </div>
 
 **Q:** As a mac user, when opening the file for the first time, I received an error that prevented me from opening the file, how do I fix this?<br>
