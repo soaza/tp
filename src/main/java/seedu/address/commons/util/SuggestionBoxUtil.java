@@ -15,12 +15,13 @@ public class SuggestionBoxUtil {
                         "p-add n/NAME g/GENDER bd/BIRTHDATE bt/BLOOD_TYPE p/PHONE e/EMAIL a/ADDRESS t/TAG",
                         "p-edit INDEX [n/NAME] [g/GENDER] [bd/BIRTHDATE] [bt/BLOODTYPE] [p/PHONE] [e/EMAIL]"
                                 + " [a/ADDRESS] [t/TAG]…",
+                        "p-list",
                         "p-delete INDEX",
                         "p-find KEYWORD",
                         "p-remark INDEX r/REMARK",
                         "p-remark INDEX",
                         //for appointment commands
-                        "a-schedule start/YYYY-MM-DD HH:MM start/YYYY-MM-DD HH:MM pt/INDEX d/DESCRIPTION t/TAGS",
+                        "a-schedule pt/INDEX start/YYYY-MM-DD HH:MM end/YYYY-MM-DD HH:MM d/DESCRIPTION t/TAGS",
                         "a-delete INDEX",
                         "a-edit INDEX start/YYYY-MM-DD HH:MM start/YYYY-MM-DD HH:MM pt/INDEX d/DESCRIPTION t/TAGS",
                         "a-complete INDEX",
