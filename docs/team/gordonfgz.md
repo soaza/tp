@@ -41,14 +41,20 @@ Given below are my contributions to the project.
   * Justification: The change in UI allowed us to display both Appointment and Patient lists side by side. This maximised the vertical space and made viewing information from both lists way easier.
   * Highlights: The application became more aesthetically pleasing and more practical as a data management app.
   * Credits: *Original CS2103T AddressBook UI was used as the back-bone.*
+ 
+<div style="page-break-after: always;"></div>  
   
-  Before:
+  Before (original UI of Addressbook3) :
         
     ![AddressBook3](https://raw.githubusercontent.com/gordonfgz/tp/branch-ppp/docs/images/Addressbook3.png)
-          
-  After:
+         
+<div style="page-break-after: always;"></div>  
+ 
+  After (first iteration of White-Blue themed UI for Archangel) :
         
     ![FirstIteration](https://raw.githubusercontent.com/gordonfgz/tp/branch-ppp/docs/images/FirstIteration.png)
+    
+<div style="page-break-after: always;"></div>  
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=gordonfgz)
 

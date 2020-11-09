@@ -57,7 +57,7 @@ Given below are my contributions to the project.
   * Developer Guide:
     * Added implementation details of the `a-schedule`, `a-delete`, `a-edit` features with relevant diagrams: [\#102](https://github.com/AY2021S1-CS2103T-W11-1/tp/pull/102), [\#243](https://github.com/AY2021S1-CS2103T-W11-1/tp/pull/243)
     * Edited implementation details of the `p-add`, `p-delete`, `p-edit` features: [\#102](https://github.com/AY2021S1-CS2103T-W11-1/tp/pull/102)
-    
+    3
 * **Community**:
   * Reported bugs and suggestions for other teams in the class (examples: [1](https://github.com/yeohhq/ped/issues/6), [2](https://github.com/yeohhq/ped/issues/2), [3](https://github.com/yeohhq/ped/issues/3))
   * Most parts of the Appointment model I have implemented is used by other members for their implementations

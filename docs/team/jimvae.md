@@ -25,8 +25,6 @@ Given below are my contributions to the project.
   * What it does: Filter appointments to appointments based on the keywords provided.
   * Justification: These features enable better appointment organisation, which is one of the focus of Archangel. The ability to view your Appointments by tag or patient allows better user experience.
   * Credits: *Original CS2103T AddressBook implementation of `PatientFindCommand` was referenced for the implementation of `AppointmentTagCommand` and `AppointmentFindPatientCommand`.*
-  
-<div style="page-break-after: always;"></div>
 
 * **New Feature**: Overall UI and Tabs
   * What it does: Cleaner and more user-friendly UI, which separated Archangel from the original AddressBook. I also replaced all the wrapper to anchorpane which is a more responsive design and implemented tabs for the dashboard and calendar.
@@ -42,7 +40,7 @@ Given below are my contributions to the project.
   
     ![Archangel](https://raw.githubusercontent.com/jimvae/tp/branch-user-guide-v1.4/docs/images/Archangel.png)
 
-* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=jimvae&sort=groupTitle&sortWithin=title&since=2020-08-14&until=2020-11-09&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=zoom&zA=jimvae&zR=AY2021S1-CS2103T-W11-1%2Ftp%5Bmaster%5D&zACS=208.38888888888889&zS=2020-08-14&zFS=jimvae&zU=2020-11-09&zMG=false&zFTF=commit&zFGS=groupByRepos&zFR=false)
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=jimvae)
 
 * **Project management**:
   * In charge of Filters, Testing and UI
