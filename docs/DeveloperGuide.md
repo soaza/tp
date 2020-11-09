@@ -891,7 +891,7 @@ This case is similar to UC10, with the filter being the patient name.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **7. Appendix: Instructions for manual testing**
+## **7. Appendix A: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -942,9 +942,20 @@ testers are expected to do more *exploratory* testing.
 
 2. _{ more test cases …​ }_
 
-### 8.1 Acknowledgments
+### 8. Appendix B: Effort
 
-#### 8.1.1 Code Related
+#### 8.1 Difficulty Level
+Archangel is a brown-field project that has modified and improved features from the original AB3. Our Archangel project implements features for 2 main entities/models, namely Appointments and Patients. 
+The inclusion of the Appointment model has increased the functionality and difficulty of the project compared to AB3 which only had Persons. 
+Additionally, our team also explored the use of other external features such as iCalendarAgenda to improve the usability of our application.
+
+#### 8.2 Challenges Faced
+As more features were implemented, we faced challenges that arose from the dependencies between the Appointment and Patient classes in order to make Archangel's functionalities more user-centric and convenient for users (e.g. Deleting a patient also results in deletion of Appointment to reduce obsolete data). 
+Many of the bugs we encountered at the beginning of the project were also due to unfamiliarity with the code base, but as time went by, identified bugs have been resolved to result in the Archangel application today.
+
+### 9. Acknowledgments
+
+#### 9.1 Code Related
 1. Implementation of Calendar feature using iCalendarAgenda
    Credits to  [Tae Kwon](https://github.com/ktaekwon000) from CS2103T-W11-4 for sharing his code base and knowledge
    of iCalendarAgenda.
