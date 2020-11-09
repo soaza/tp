@@ -166,11 +166,11 @@ Examples:
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/p-list_1.png" width="95%" /> <br />
-Figure 2.2.2.1: <i>Initial state of Archangel at launch<br />
-(All-Patient list is the list under view!).</i>
+Figure 2.2.2.1: <i>Initial state of Archangel at launch.<br />
+(All-Patient list is the list under view!)</i>
 <img src="images/UserGuide/p-list_2.png" width="95%" /> <br />
-Figure 2.2.2.2: <i>After `p-find alex`<br />
-(All-Patients list changed to list of patients with 'alex' in their name!).</i>
+Figure 2.2.2.2: <i>After `p-find alex`.<br />
+(All-Patients list changed to list of patients with 'alex' in their name!)</i>
 <img src="images/UserGuide/p-list_3.png" width="95%" /> <br />
 Figure 2.2.2.3: <i>After `p-list`<br />
 (All-Patient list is back as the list under view!).</i>
@@ -203,10 +203,10 @@ Examples:
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/p-edit_1.png" width="95%" /> <br />
-Figure 2.2.3.1: <i>Initial state of Archangel at launch<br />
-(All-Patient list is the list under view!).</i>
+Figure 2.2.3.1: <i>Initial state of Archangel at launch.<br />
+(All-Patient list is the list under view!)</i>
 <img src="images/UserGuide/p-edit_2.png" width="95%" /> <br />
-Figure 2.2.3.2: <i>After `p-edit 2 n/Betsy Crower`<br />
+Figure 2.2.3.2: <i>After `p-edit 2 n/Betsy Crower`.<br />
 (Patient at index 2 on the patient list has their name changed to Betsy Crower! Affected appointments also have their patient updated!).</i>
 </div>
 
@@ -235,11 +235,11 @@ Examples:
 
 <div style="text-align: center; padding-bottom: 2em">
 <img src="images/UserGuide/p-find_1.png" width="95%" /> <br />
-Figure 2.2.4.1: <i>Initial state of Archangel at launch<br />
-(All-Patient list is the list under view!).</i>
+Figure 2.2.4.1: <i>Initial state of Archangel at launch.<br />
+(All-Patient list is the list under view!)</i>
 <img src="images/UserGuide/p-find_2.png" width="95%" /> <br />
-Figure 2.2.4.2: <i>After `p-find Yeoh`<br />
-(All patients with 'Yeoh' in their names will be displayed!).</i>
+Figure 2.2.4.2: <i>After `p-find Yeoh`.<br />
+(All patients with 'Yeoh' in their names will be displayed!)</i>
 </div>
 
 #### 2.2.5 Giving a patient a Remark : `p-remark`
